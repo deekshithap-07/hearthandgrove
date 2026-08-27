@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutrition — Hearth & Grove</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-mark">Hearth & Grove</span>
+          <span class="logo-sub">Nuts · Nourish · Nature</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="catalogue.html">Catalogue</a>
+          <a href="about.html">Our Story</a>
+          <a class="active" href="nutrition.html">Nutrition</a>
+        </nav>
+        <div class="header-actions">
+          <div class="header-contact">
+            <strong>+254 700 000 000</strong>
+            hello@hearthandgrove.com
+          </div>
+          <a class="btn btn-gold" href="catalogue.html">Shop</a>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div class="nav-mobile-panel container">
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="about.html">Our Story</a>
+        <a href="nutrition.html">Nutrition</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="reveal">Nutrition</h1>
+          <p class="reveal">Benefits, comparisons, and clear answers — made beautiful.</p>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 1rem">
+        <div class="container">
+          <div class="nutrition-benefits">
+            <div class="benefits-main reveal">
+              <img
+                src="images/cashews-bowl.jpg"
+                alt="Bowl of roasted cashew nuts"
+              />
+              <div class="benefits-copy">
+                <h2>Benefits of nuts</h2>
+                <p>
+                  Nuts bring dietary fibre, healthy fats, and plant protein in a small handful.
+                  Cashews offer a creamy mineral-rich bite; almonds deliver vitamin E and a
+                  satisfying crunch — both support steady energy and everyday wellness.
+                </p>
+                <p style="margin-top: 1rem">
+                  Curious how they compare? Use the nutrition tool below, then explore our
+                  allergy cards for practical answers.
+                </p>
+              </div>
+            </div>
+
+            <aside class="did-you-know reveal reveal-delay-1">
+              <div>
+                <h3>Did you know?</h3>
+                <p style="margin-top: 0.85rem">
+                  A plant-forward snack habit — like a daily handful of nuts — can support heart
+                  health while keeping meals grounded and simple.
+                </p>
+              </div>
+              <a class="btn btn-gold" href="#compare">Read more</a>
+            </aside>
+          </div>
+
+          <div class="compare reveal" id="compare">
+            <h2>Nut nutrition</h2>
+            <p class="sub">per 28 g · 1 oz handful</p>
+            <div class="compare-grid">
+              <div class="compare-col">
+                <label class="visually-hidden" for="nut-left">Left nut</label>
+                <select id="nut-left">
+                  <option value="cashew" selected>Cashew</option>
+                  <option value="almond">Almond</option>
+                </select>
+                <div class="compare-photo">
+                  <img id="nut-photo-left" src="" alt="" />
+                </div>
+                <div class="nutrient-list" id="nut-list-left"></div>
+              </div>
+              <div class="compare-col">
+                <label class="visually-hidden" for="nut-right">Right nut</label>
+                <select id="nut-right">
+                  <option value="cashew">Cashew</option>
+                  <option value="almond" selected>Almond</option>
+                </select>
+                <div class="compare-photo">
+                  <img id="nut-photo-right" src="" alt="" />
+                </div>
+                <div class="nutrient-list" id="nut-list-right"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="allergies">
+            <h2 class="reveal">Allergies</h2>
+            <div class="flip-grid">
+              <button
+                class="flip-card reveal"
+                type="button"
+                aria-pressed="false"
+                aria-label="What is an allergy?"
+              >
+                <div class="flip-inner">
+                  <div class="flip-face front">
+                    <h3>What is an allergy?</h3>
+                    <small>Tap to flip</small>
+                  </div>
+                  <div class="flip-face back">
+                    An allergy is an immune response to a food protein. Tree-nut allergies can be
+                    serious — always read labels and follow medical advice.
+                  </div>
+                </div>
+              </button>
+
+              <button
+                class="flip-card reveal reveal-delay-1"
+                type="button"
+                aria-pressed="false"
+                aria-label="How common are allergies?"
+              >
+                <div class="flip-inner">
+                  <div class="flip-face front">
+                    <h3>How common are allergies?</h3>
+                    <small>Tap to flip</small>
+                  </div>
+                  <div class="flip-face back">
+                    Tree-nut allergies affect a portion of children and adults worldwide. Prevalence
+                    varies by region — speak with a clinician for personal guidance.
+                  </div>
+                </div>
+              </button>
+
+              <button
+                class="flip-card reveal reveal-delay-2"
+                type="button"
+                aria-pressed="false"
+                aria-label="Symptoms and diagnosis"
+              >
+                <div class="flip-inner">
+                  <div class="flip-face front">
+                    <h3>Symptoms &amp; diagnosis</h3>
+                    <small>Tap to flip</small>
+                  </div>
+                  <div class="flip-face back">
+                    Symptoms may include hives, swelling, or breathing difficulty. Diagnosis is
+                    clinical — never self-test with food if you suspect an allergy.
+                  </div>
+                </div>
+              </button>
+
+              <button
+                class="flip-card reveal reveal-delay-3"
+                type="button"
+                aria-pressed="false"
+                aria-label="Research"
+              >
+                <div class="flip-inner">
+                  <div class="flip-face front">
+                    <h3>Research</h3>
+                    <small>Tap to flip</small>
+                  </div>
+                  <div class="flip-face back">
+                    Ongoing research explores tolerance, labelling standards, and nutrition science.
+                    We share general education only — not medical advice.
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bg" aria-hidden="true">
+        <img
+          src="images/cashews.jpg"
+          alt=""
+        />
+      </div>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-mark">Hearth & Grove</span>
+            <span class="logo-sub">Nuts · Nourish · Nature</span>
+          </div>
+          <p>Experience premium nuts through meaningful, everyday connections.</p>
+          <div class="socials" style="margin-top: 1.25rem">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="LinkedIn">IN</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="nutrition.html">Nutrition</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacts</h4>
+          <ul class="contact-list">
+            <li>Customer care: +254 700 000 000</li>
+            <li>Email: hello@hearthandgrove.com</li>
+            <li>Nairobi, Kenya</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Hearth & Grove. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+      @media (max-width: 900px) {
+        .section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
+    <script src="js/main.js"></script>
+  </body>
+</html>
