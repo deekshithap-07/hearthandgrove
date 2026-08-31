@@ -22,71 +22,126 @@
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="catalogue.html">Catalogue</a>
-          <a href="about.html">Our Story</a>
+          <a href="about.html">About Us</a>
           <a class="active" href="nutrition.html">Nutrition</a>
         </nav>
         <div class="header-actions">
-          <div class="header-contact">
-            <strong>+254 700 000 000</strong>
-            hello@hearthandgrove.com
+          <button class="header-icon-btn header-search-btn" type="button" aria-label="Search" aria-expanded="false" aria-controls="header-search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.5-3.5" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="header-socials" aria-label="Social links">
+            <a href="#" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.5 9.5H3.8v10.7h2.7V9.5zM5.15 4.2a1.6 1.6 0 110 3.2 1.6 1.6 0 010-3.2zM20.2 13.1c0-2.9-1.55-4.25-3.6-4.25-1.66 0-2.4.9-2.82 1.55V9.5h-2.7c.04.85 0 10.7 0 10.7h2.7v-6c0-.32.02-.64.12-.87.26-.64.85-1.3 1.84-1.3 1.3 0 1.82.98 1.82 2.42v5.75h2.7v-6z" />
+              </svg>
+            </a>
           </div>
-          <a class="btn btn-gold" href="catalogue.html">Shop</a>
+          <button type="button" class="header-cart" aria-label="Cart, 0 items" aria-expanded="false" aria-controls="cart-drawer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M6 8h12l-1 12H7L6 8z" stroke-linejoin="round" />
+              <path d="M9 8a3 3 0 016 0" stroke-linecap="round" />
+            </svg>
+            <span class="cart-count">0</span>
+          </button>
           <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
       </div>
+      <div class="header-search" id="header-search" hidden>
+        <form class="header-search-form container" action="catalogue.html" method="get" role="search">
+          <label class="visually-hidden" for="site-search">Search products</label>
+          <input id="site-search" type="search" name="q" placeholder="Search cashews, almonds…" autocomplete="off" />
+          <button type="submit" class="header-icon-btn" aria-label="Submit search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.5-3.5" stroke-linecap="round" />
+            </svg>
+          </button>
+          <button type="button" class="header-search-close" aria-label="Close search">×</button>
+        </form>
+      </div>
       <div class="nav-mobile-panel container">
         <a href="index.html">Home</a>
         <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">Our Story</a>
+        <a href="about.html">About Us</a>
         <a href="nutrition.html">Nutrition</a>
       </div>
     </header>
 
     <main>
-      <section class="page-hero">
-        <div class="container">
-          <h1 class="reveal">Nutrition</h1>
-          <p class="reveal">Benefits, comparisons, and clear answers — made beautiful.</p>
+      <!-- Nutfruit-style intro — catalogue-matching soft nuts bg -->
+      <section class="nutrition-hero">
+        <div class="nutrition-hero-media" aria-hidden="true">
+          <img src="images/nuts-flatlay.jpg" alt="" />
+        </div>
+        <div class="nutrition-hero-overlay" aria-hidden="true"></div>
+        <div class="container nutrition-hero-inner reveal">
+          <header class="page-hero-header">
+            <h1>Nutrition</h1>
+            <p>Discover what cashews and almonds can do for you — from everyday energy to clear answers on allergies.</p>
+          </header>
         </div>
       </section>
 
-      <section class="section" style="padding-top: 1rem">
+      <!-- Benefits + Did you know (inspo layout) -->
+      <section class="nutrition-band" id="benefits">
         <div class="container">
           <div class="nutrition-benefits">
             <div class="benefits-main reveal">
-              <img
-                src="images/cashews-bowl.jpg"
-                alt="Bowl of roasted cashew nuts"
-              />
+              <img src="images/nuts-jars.jpg" alt="Jars of premium nuts" />
               <div class="benefits-copy">
                 <h2>Benefits of nuts</h2>
                 <p>
-                  Nuts bring dietary fibre, healthy fats, and plant protein in a small handful.
-                  Cashews offer a creamy mineral-rich bite; almonds deliver vitamin E and a
-                  satisfying crunch — both support steady energy and everyday wellness.
+                  Nuts bring healthy fats, plant protein, fibre, and key minerals in a small handful.
+                  Cashews offer a creamy, mineral-rich bite; almonds deliver vitamin E and satisfying
+                  crunch — both support steady energy and everyday wellness.
                 </p>
-                <p style="margin-top: 1rem">
-                  Curious how they compare? Use the nutrition tool below, then explore our
-                  allergy cards for practical answers.
-                </p>
+                <ul class="benefits-list">
+                  <li>Support heart health with unsaturated fats</li>
+                  <li>Help keep you fuller between meals</li>
+                  <li>Provide magnesium, vitamin E, and plant protein</li>
+                  <li>Fit easily into snacks, salads, and cooking</li>
+                </ul>
               </div>
             </div>
 
             <aside class="did-you-know reveal reveal-delay-1">
+              <div class="did-you-know-thumb" aria-hidden="true">
+                <img src="images/almonds.jpg" alt="" />
+              </div>
               <div>
                 <h3>Did you know?</h3>
-                <p style="margin-top: 0.85rem">
-                  A plant-forward snack habit — like a daily handful of nuts — can support heart
-                  health while keeping meals grounded and simple.
+                <p>
+                  A daily handful of nuts can support cardiovascular health while keeping meals
+                  grounded and simple — small foods with meaningful impact.
                 </p>
               </div>
               <a class="btn btn-gold" href="#compare">Read more</a>
             </aside>
           </div>
+        </div>
+      </section>
 
-          <div class="compare reveal" id="compare">
+      <!-- Compare tool (Nutfruit + inspo) -->
+      <section class="nutrition-band nutrition-band-alt" id="compare">
+        <div class="container">
+          <div class="compare reveal">
             <h2>Nut nutrition</h2>
             <p class="sub">per 28 g · 1 oz handful</p>
             <div class="compare-grid">
@@ -97,7 +152,7 @@
                   <option value="almond">Almond</option>
                 </select>
                 <div class="compare-photo">
-                  <img id="nut-photo-left" src="" alt="" />
+                  <img id="nut-photo-left" src="images/cashews.jpg" alt="Cashew" />
                 </div>
                 <div class="nutrient-list" id="nut-list-left"></div>
               </div>
@@ -108,21 +163,65 @@
                   <option value="almond" selected>Almond</option>
                 </select>
                 <div class="compare-photo">
-                  <img id="nut-photo-right" src="" alt="" />
+                  <img id="nut-photo-right" src="images/almonds-pile.jpg" alt="Almond" />
                 </div>
                 <div class="nutrient-list" id="nut-list-right"></div>
               </div>
             </div>
           </div>
 
+          <!-- Simplified nutrient benefit finder -->
+          <div class="benefit-finder reveal">
+            <h2>Nutrient benefit finder</h2>
+            <p class="benefit-finder-lead">
+              Explore how our cashews and almonds support everyday wellbeing.
+            </p>
+            <div class="benefit-chips" role="list">
+              <button type="button" class="benefit-chip is-active" data-benefit="heart" role="listitem">
+                Heart health
+              </button>
+              <button type="button" class="benefit-chip" data-benefit="energy" role="listitem">
+                Steady energy
+              </button>
+              <button type="button" class="benefit-chip" data-benefit="brain" role="listitem">
+                Brain focus
+              </button>
+              <button type="button" class="benefit-chip" data-benefit="skin" role="listitem">
+                Skin nourishment
+              </button>
+              <button type="button" class="benefit-chip" data-benefit="muscle" role="listitem">
+                Muscle support
+              </button>
+              <button type="button" class="benefit-chip" data-benefit="digestion" role="listitem">
+                Digestion
+              </button>
+            </div>
+            <div class="benefit-panel" id="benefit-panel" aria-live="polite">
+              <h3>Heart health</h3>
+              <p>
+                Unsaturated fats in cashews and almonds support healthy cholesterol balance as part of
+                a varied diet — a simple handful, thoughtfully enjoyed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Allergies flip cards -->
+      <section class="nutrition-band" id="allergies">
+        <div class="container">
           <div class="allergies">
             <h2 class="reveal">Allergies</h2>
+            <p class="allergies-lead reveal">
+              Clear answers on tree-nut allergies — tap a card to flip and read more.
+            </p>
             <div class="flip-grid">
               <button
                 class="flip-card reveal"
                 type="button"
                 aria-pressed="false"
-                aria-label="What is an allergy?"
+                aria-label="What is an allergy? Tap to flip for the answer"
+                data-card="gold"
               >
                 <div class="flip-inner">
                   <div class="flip-face front">
@@ -130,8 +229,11 @@
                     <small>Tap to flip</small>
                   </div>
                   <div class="flip-face back">
-                    An allergy is an immune response to a food protein. Tree-nut allergies can be
-                    serious — always read labels and follow medical advice.
+                    <p>
+                      Food allergies are caused by an adverse immune reaction to certain food
+                      proteins. In adults, peanuts and tree nuts are common triggers. Always read
+                      labels and follow medical advice — never self-test if you suspect an allergy.
+                    </p>
                   </div>
                 </div>
               </button>
@@ -140,7 +242,8 @@
                 class="flip-card reveal reveal-delay-1"
                 type="button"
                 aria-pressed="false"
-                aria-label="How common are allergies?"
+                aria-label="How common are allergies? Tap to flip for the answer"
+                data-card="sage"
               >
                 <div class="flip-inner">
                   <div class="flip-face front">
@@ -148,8 +251,11 @@
                     <small>Tap to flip</small>
                   </div>
                   <div class="flip-face back">
-                    Tree-nut allergies affect a portion of children and adults worldwide. Prevalence
-                    varies by region — speak with a clinician for personal guidance.
+                    <p>
+                      Food allergies affect a small share of adults and a slightly higher share of
+                      children worldwide. Prevalence varies by region. Cashews and almonds are among
+                      common tree-nut allergens — a clinician can help you understand personal risk.
+                    </p>
                   </div>
                 </div>
               </button>
@@ -158,7 +264,8 @@
                 class="flip-card reveal reveal-delay-2"
                 type="button"
                 aria-pressed="false"
-                aria-label="Symptoms and diagnosis"
+                aria-label="Symptoms and diagnosis. Tap to flip for the answer"
+                data-card="warm"
               >
                 <div class="flip-inner">
                   <div class="flip-face front">
@@ -166,8 +273,12 @@
                     <small>Tap to flip</small>
                   </div>
                   <div class="flip-face back">
-                    Symptoms may include hives, swelling, or breathing difficulty. Diagnosis is
-                    clinical — never self-test with food if you suspect an allergy.
+                    <p>
+                      Skin-prick and blood tests help identify allergen-specific antibodies linked to
+                      reactions. Symptoms may include hives, swelling, or breathing difficulty.
+                      Diagnosis is clinical — seek urgent care for severe reactions and never
+                      self-test with food.
+                    </p>
                   </div>
                 </div>
               </button>
@@ -176,7 +287,8 @@
                 class="flip-card reveal reveal-delay-3"
                 type="button"
                 aria-pressed="false"
-                aria-label="Research"
+                aria-label="Research. Tap to flip for the answer"
+                data-card="deep"
               >
                 <div class="flip-inner">
                   <div class="flip-face front">
@@ -184,8 +296,12 @@
                     <small>Tap to flip</small>
                   </div>
                   <div class="flip-face back">
-                    Ongoing research explores tolerance, labelling standards, and nutrition science.
-                    We share general education only — not medical advice.
+                    <p>
+                      Research continues on early introduction, labelling standards, and everyday
+                      nutrition science. We share general education only — not medical advice. For
+                      the latest guidance, refer to accredited health organisations and your care
+                      team.
+                    </p>
                   </div>
                 </div>
               </button>
@@ -195,10 +311,11 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+        <footer class="site-footer" id="contact">
       <div class="footer-bg" aria-hidden="true">
         <img
-          src="images/cashews.jpg"
+          class="footer-bg-scatter"
+          src="images/nuts-flatlay.jpg"
           alt=""
         />
       </div>
@@ -209,51 +326,37 @@
             <span class="logo-sub">Nuts · Nourish · Nature</span>
           </div>
           <p>Experience premium nuts through meaningful, everyday connections.</p>
-          <div class="socials" style="margin-top: 1.25rem">
+        </div>
+
+        <div class="footer-col">
+          <h4>Get Social</h4>
+          <div class="socials" aria-label="Social links">
             <a href="#" aria-label="Instagram">IG</a>
             <a href="#" aria-label="Facebook">FB</a>
             <a href="#" aria-label="LinkedIn">IN</a>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
+
+        <div class="footer-col footer-links">
           <ul>
-            <li><a href="catalogue.html">Catalogue</a></li>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="nutrition.html">Nutrition</a></li>
+            <li><a href="about.html">Our Mission &amp; Vision</a></li>
+            <li><a href="#reviews">Customer Reviews</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Contacts</h4>
-          <ul class="contact-list">
-            <li>Customer care: +254 700 000 000</li>
-            <li>Email: hello@hearthandgrove.com</li>
-            <li>Nairobi, Kenya</li>
+
+        <div class="footer-col footer-links">
+          <ul>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#shipping">Shipping &amp; Returns</a></li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
         <span>© 2026 Hearth & Grove. All rights reserved.</span>
+        <span>Customer care: +254 700 000 000 · hello@hearthandgrove.com</span>
       </div>
     </footer>
 
-    <style>
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-      @media (max-width: 900px) {
-        .section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
-          grid-template-columns: 1fr !important;
-        }
-      }
-    </style>
     <script src="js/main.js"></script>
   </body>
 </html>

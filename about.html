@@ -22,64 +22,165 @@
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="catalogue.html">Catalogue</a>
-          <a class="active" href="about.html">About</a>
+          <a class="active" href="about.html">About Us</a>
           <a href="nutrition.html">Nutrition</a>
         </nav>
         <div class="header-actions">
-          <div class="header-contact">
-            <strong>+254 700 000 000</strong>
-            hello@hearthandgrove.com
+          <button class="header-icon-btn header-search-btn" type="button" aria-label="Search" aria-expanded="false" aria-controls="header-search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.5-3.5" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="header-socials" aria-label="Social links">
+            <a href="#" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.5 9.5H3.8v10.7h2.7V9.5zM5.15 4.2a1.6 1.6 0 110 3.2 1.6 1.6 0 010-3.2zM20.2 13.1c0-2.9-1.55-4.25-3.6-4.25-1.66 0-2.4.9-2.82 1.55V9.5h-2.7c.04.85 0 10.7 0 10.7h2.7v-6c0-.32.02-.64.12-.87.26-.64.85-1.3 1.84-1.3 1.3 0 1.82.98 1.82 2.42v5.75h2.7v-6z" />
+              </svg>
+            </a>
           </div>
-          <a class="btn btn-gold" href="catalogue.html">Shop</a>
+          <button type="button" class="header-cart" aria-label="Cart, 0 items" aria-expanded="false" aria-controls="cart-drawer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M6 8h12l-1 12H7L6 8z" stroke-linejoin="round" />
+              <path d="M9 8a3 3 0 016 0" stroke-linecap="round" />
+            </svg>
+            <span class="cart-count">0</span>
+          </button>
           <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
       </div>
+      <div class="header-search" id="header-search" hidden>
+        <form class="header-search-form container" action="catalogue.html" method="get" role="search">
+          <label class="visually-hidden" for="site-search">Search products</label>
+          <input id="site-search" type="search" name="q" placeholder="Search cashews, almonds…" autocomplete="off" />
+          <button type="submit" class="header-icon-btn" aria-label="Submit search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.5-3.5" stroke-linecap="round" />
+            </svg>
+          </button>
+          <button type="button" class="header-search-close" aria-label="Close search">×</button>
+        </form>
+      </div>
       <div class="nav-mobile-panel container">
         <a href="index.html">Home</a>
         <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">About</a>
+        <a href="about.html">About Us</a>
         <a href="nutrition.html">Nutrition</a>
       </div>
     </header>
 
     <main>
-      <section class="belief">
-        <img src="images/almonds-pile.jpg" alt="" />
-        <div class="belief-overlay"></div>
-        <p class="belief-text reveal">
-          We believe in the quiet power of real food — nourishing tables, one handful at a time.
-        </p>
+      <!-- Belief hero — same soft nuts flat-lay as catalogue -->
+      <section class="belief" id="about">
+        <div class="belief-media" aria-hidden="true">
+          <img src="images/nuts-flatlay.jpg" alt="" />
+        </div>
+        <div class="belief-overlay" aria-hidden="true"></div>
+        <div class="belief-content reveal">
+          <header class="page-hero-header">
+            <h1>About Us</h1>
+            <p>We believe in the quiet power of real food — nourishing tables, one handful at a time.</p>
+          </header>
+        </div>
       </section>
 
+      <!-- Established story card -->
       <section class="about-story">
         <div class="container">
-          <div class="about-story-grid reveal">
-            <img
-              src="images/cashews-bowl.jpg"
-              alt="Roasted cashew nuts in a bowl"
-            />
-            <div>
+          <div class="about-story-card reveal">
+            <div class="about-story-media">
+              <img
+                src="images/cashews-bowl.jpg"
+                alt="Roasted cashew nuts in a bowl"
+              />
+            </div>
+            <div class="about-story-copy">
               <h2>Established with care.</h2>
               <p>
-                Hearth & Grove is a nut house built around honesty: cashews and almonds chosen for
-                quality, packed with intention, and shared with the people we cook and gather with.
+                Hearth & Grove began with a love for honest food: nuts that taste like they came from
+                somewhere real. We source cashews and almonds with intention, pack them with care,
+                and share them with the people we cook and gather with.
               </p>
               <p>
-                Our story is simple — we met around food that feels grounding. From grove to hearth,
-                we keep value close to the source and bring that warmth to every pack we send out.
+                From grove to hearth, we keep value close to the source — choosing quality over noise,
+                and connection over complication. Every pack is meant to feel grounding, clean, and
+                ready for everyday tables.
+              </p>
+              <p>
+                We believe nourishment should feel simple: premium nuts, thoughtfully presented, and
+                rooted in the places and people behind them.
               </p>
               <a class="btn btn-outline-dark" href="catalogue.html">View our products</a>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Mission + Quality -->
+      <section class="about-purpose">
+        <div class="container">
+          <header class="about-purpose-header reveal">
+            <p class="section-label">About Us</p>
+            <h2>Connecting through premium nuts</h2>
+            <p>
+              We believe in the value of connection — between land, people, and the table.
+            </p>
+          </header>
+
+          <div class="about-purpose-grid">
+            <article class="reveal">
+              <h3>Our Mission</h3>
+              <p>
+                To bring carefully sourced cashews and almonds to everyday kitchens — clean,
+                nourishing, and honest — while staying close to the craft of real food.
+              </p>
+            </article>
+            <article class="reveal reveal-delay-1">
+              <h3>Quality Experience</h3>
+              <p>
+                From selection to packing, we focus on freshness, flavour, and clarity. What you see
+                is what you get: premium nuts, simply and carefully prepared.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Purpose band -->
+      <section class="about-band">
+        <div class="container about-band-inner reveal">
+          <h2>A purpose-led house for people &amp; table</h2>
+          <p>
+            We exist to make nourishing nuts feel approachable — rooted in care, shared with warmth,
+            and always easy to return to.
+          </p>
+          <a class="btn btn-gold" href="nutrition.html">Explore nutrition</a>
+        </div>
+      </section>
     </main>
 
-    <footer class="site-footer">
+        <footer class="site-footer" id="contact">
       <div class="footer-bg" aria-hidden="true">
-        <img src="images/cashews.jpg" alt="" />
+        <img
+          class="footer-bg-scatter"
+          src="images/nuts-flatlay.jpg"
+          alt=""
+        />
       </div>
       <div class="container footer-inner">
         <div class="footer-brand">
@@ -88,31 +189,34 @@
             <span class="logo-sub">Nuts · Nourish · Nature</span>
           </div>
           <p>Experience premium nuts through meaningful, everyday connections.</p>
-          <div class="socials" style="margin-top: 1.25rem">
+        </div>
+
+        <div class="footer-col">
+          <h4>Get Social</h4>
+          <div class="socials" aria-label="Social links">
             <a href="#" aria-label="Instagram">IG</a>
             <a href="#" aria-label="Facebook">FB</a>
             <a href="#" aria-label="LinkedIn">IN</a>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
+
+        <div class="footer-col footer-links">
           <ul>
-            <li><a href="catalogue.html">Catalogue</a></li>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="nutrition.html">Nutrition</a></li>
+            <li><a href="about.html">Our Mission &amp; Vision</a></li>
+            <li><a href="#reviews">Customer Reviews</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Contacts</h4>
-          <ul class="contact-list">
-            <li>Customer care: +254 700 000 000</li>
-            <li>Email: hello@hearthandgrove.com</li>
-            <li>Nairobi, Kenya</li>
+
+        <div class="footer-col footer-links">
+          <ul>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#shipping">Shipping &amp; Returns</a></li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
         <span>© 2026 Hearth & Grove. All rights reserved.</span>
+        <span>Customer care: +254 700 000 000 · hello@hearthandgrove.com</span>
       </div>
     </footer>
 
