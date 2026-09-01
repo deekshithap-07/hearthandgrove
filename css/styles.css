@@ -819,7 +819,7 @@ body.cart-open {
   min-height: 145vh;
   align-items: start;
   justify-items: center;
-  /* overflow:hidden breaks position:sticky — clip only on .hero-media-motion */
+  /* overflow:hidden breaks position:sticky ? clip only on .hero-media-motion */
   overflow: visible;
 }
 
@@ -1863,6 +1863,7 @@ body.cart-open {
   object-fit: cover;
   object-position: 70% 20%;
   transform: scale(1.06);
+  opacity: 0.58;
 }
 
 .nutrition-hero-overlay {
@@ -1870,11 +1871,17 @@ body.cart-open {
   inset: 0;
   z-index: 1;
   background:
+    radial-gradient(
+      ellipse 88% 72% at 50% 38%,
+      rgba(250, 247, 242, 0.9) 0%,
+      rgba(250, 247, 242, 0.62) 52%,
+      rgba(250, 247, 242, 0.28) 100%
+    ),
     linear-gradient(
       180deg,
-      rgba(250, 247, 242, 0.78) 0%,
-      rgba(250, 247, 242, 0.7) 45%,
-      rgba(243, 239, 232, 0.82) 100%
+      rgba(250, 247, 242, 0.62) 0%,
+      rgba(250, 247, 242, 0.74) 45%,
+      rgba(243, 239, 232, 0.84) 100%
     );
 }
 
