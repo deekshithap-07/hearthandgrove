@@ -815,7 +815,7 @@ body.cart-open {
   align-items: center;
 }
 
-/* Hero fills one viewport Â one scroll reaches the next section. */
+/* Hero fills one viewport ÃÂ one scroll reaches the next section. */
 .hero-flat.hero-motion {
   min-height: 100vh;
   min-height: 100dvh;
@@ -829,7 +829,7 @@ body.cart-open {
   fill: #e8e3db;
 }
 
-/* Home hero â slightly taller so no white strip shows above the wave */
+/* Home hero Ã¢ÂÂ slightly taller so no white strip shows above the wave */
 #hero.hero-flat.hero-motion {
   min-height: calc(100dvh + 1.25rem);
 }
@@ -942,7 +942,7 @@ body.cart-open {
   transition-delay: 0.36s;
 }
 
-/* Scroll-over entry Â sections rising above previous */
+/* Scroll-over entry ÃÂ sections rising above previous */
 .reveal-over {
   opacity: 0;
   transform: translateY(72px) scale(0.97);
@@ -1006,7 +1006,7 @@ body.cart-open {
   max-width: 36rem;
 }
 
-/* What we offer â warm brand wash + cards over type watermark (home only) */
+/* What we offer Ã¢ÂÂ warm brand wash + cards over type watermark (home only) */
 .offer {
   position: relative;
   background: linear-gradient(180deg, #e8e3db 0%, #e4ddd2 55%, #dfd6c9 100%);
@@ -1235,7 +1235,7 @@ body.cart-open {
   transform: translateY(-12px);
 }
 
-/* Branded Hearth & Grove pack Â scroll entry (different per product) + select */
+/* Branded Hearth & Grove pack ÃÂ scroll entry (different per product) + select */
 .product-pack {
   position: relative;
   aspect-ratio: 5 / 6;
@@ -1422,12 +1422,13 @@ body.cart-open {
 @media (max-width: 900px) {
   .catalogue-shop-compose {
     min-height: auto;
-    padding-bottom: 2rem;
+    padding-top: calc(var(--entry-wave-h) + 0.55rem);
+    padding-bottom: 1.25rem;
   }
 
   .catalogue-shop .offer-bg-writing {
-    padding-top: calc(var(--entry-wave-h) + 0.85rem);
-    padding-bottom: clamp(1.5rem, 4vh, 2.25rem);
+    padding-top: 0.35rem;
+    padding-bottom: 0;
   }
 
   .catalogue-shop .offer-stage {
@@ -1437,9 +1438,11 @@ body.cart-open {
     left: auto;
     transform: none;
     width: 100%;
-    margin-top: 0.75rem;
-    padding: 0 0.75rem;
+    margin-top: 0.35rem;
+    padding: 0 0.35rem;
     align-items: stretch;
+    z-index: 2;
+    min-height: clamp(250px, 68vw, 340px);
   }
 
   .catalogue-shop-cta {
@@ -1449,74 +1452,119 @@ body.cart-open {
   }
 
   .offer {
-    padding-block: calc(3.25rem + var(--entry-wave-h) * 0.28) 0;
+    padding-block: calc(2.35rem + var(--entry-wave-h) * 0.22) 0;
   }
 
-  .offer-compose {
-    padding-bottom: 1.5rem;
+  .offer-compose,
+  .catalogue-shop-compose {
+    position: relative;
+    padding-bottom: 1.25rem;
+  }
+
+  .offer .offer-bg-writing,
+  .catalogue-shop .offer-bg-writing {
+    position: absolute;
+    inset: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    margin-left: -50vw;
+    padding: 0.35rem 0.4rem 0;
+    gap: 0.08rem;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .offer .offer-bg-row:nth-child(n + 4),
+  .catalogue-shop .offer-bg-row:nth-child(n + 4) {
+    display: none;
   }
 
   .offer-bg-writing {
-    padding-inline: 0.5rem;
-    padding-bottom: 0.75rem;
+    padding-inline: 0.4rem;
+    padding-bottom: 0;
+  }
+
+  .offer-bg-row {
+    gap: 0.2rem;
   }
 
   .offer-bg-row span {
-    font-size: clamp(1.65rem, 9.5vw, 3.25rem);
-    letter-spacing: 0.01em;
+    font-size: clamp(1.05rem, 6.2vw, 1.65rem);
+    letter-spacing: 0;
+    line-height: 1;
   }
 
-  .offer-stage {
+  .offer-header {
+    margin-bottom: 0.35rem;
+  }
+
+  .offer-stage,
+  .catalogue-shop .offer-stage {
     position: relative;
     top: auto;
     bottom: auto;
     left: auto;
     transform: none;
     width: 100%;
-    margin-top: 1rem;
-    padding: 0 0.75rem;
+    margin-top: 0.35rem;
+    padding: 0 0.35rem;
     align-items: stretch;
+    z-index: 2;
+    min-height: clamp(250px, 68vw, 340px);
   }
 
   .offer-cta {
     position: relative;
     bottom: auto;
-    margin: 1.75rem auto 2rem;
-    max-width: calc(100% - 2rem);
-    padding: 1rem 1.25rem;
-    font-size: 0.88rem;
+    margin: 1.25rem auto 1.5rem;
+    max-width: calc(100% - 1.5rem);
+    padding: 0.95rem 1.1rem;
+    font-size: 0.86rem;
   }
 
   .offer-title {
-    font-size: clamp(2.35rem, 9vw, 3.35rem);
+    font-size: clamp(2.1rem, 8.5vw, 3rem);
   }
 
   .offer-sub {
-    font-size: 0.95rem;
-    padding-inline: 0.25rem;
+    font-size: 0.92rem;
+    padding-inline: 0.35rem;
+    line-height: 1.5;
   }
 
   .shop-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 100%;
     width: 100%;
-    gap: clamp(0.75rem, 3vw, 1.15rem);
+    gap: clamp(0.6rem, 2.8vw, 0.9rem);
   }
 
   .shop-item-link {
     max-width: none;
   }
 
+  .shop-item-media {
+    aspect-ratio: 1 / 1.05;
+  }
+
   .shop-item-body {
-    padding: 0.85rem 0.75rem 0.95rem;
+    padding: 0.7rem 0.55rem 0.8rem;
   }
 
   .shop-item-body h3 {
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
 
   .shop-item-explore {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
+  }
+
+  .shop-item-card .btn-add-cart {
+    max-width: none;
+    margin-top: 0.45rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.68rem;
   }
 
   .compare-grid {
@@ -1715,7 +1763,7 @@ body.cart-open {
   text-align: center;
 }
 
-/* Catalogue shop â same warm brand wash + type watermark as home What we offer */
+/* Catalogue shop Ã¢ÂÂ same warm brand wash + type watermark as home What we offer */
 .catalogue-shop {
   position: relative;
   z-index: 1;
@@ -2018,19 +2066,29 @@ body.cart-open {
   }
 
   .shop-grid {
-    gap: 0.65rem;
+    gap: 0.55rem;
   }
 
   .shop-item-body h3 {
-    font-size: 0.92rem;
+    font-size: 0.86rem;
   }
 
   .shop-item-body .price {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
   }
 
   .offer-header {
-    padding-inline: 0.5rem;
+    padding-inline: 0.35rem;
+  }
+
+  .offer .offer-bg-row span,
+  .catalogue-shop .offer-bg-row span {
+    font-size: clamp(0.95rem, 5.6vw, 1.35rem);
+  }
+
+  .offer-stage,
+  .catalogue-shop .offer-stage {
+    min-height: clamp(220px, 64vw, 300px);
   }
 }
 
@@ -2045,7 +2103,7 @@ body.cart-open {
   }
 }
 
-/* About page â Nutfruit cinematic entry + story + leaf + who we are */
+/* About page Ã¢ÂÂ Nutfruit cinematic entry + story + leaf + who we are */
 .page-about main {
   background: #a88772;
 }
@@ -2380,7 +2438,7 @@ body.cart-open {
   margin-top: clamp(-5rem, -14vh, -2.5rem);
 }
 
-/* Solid-bg slide-up reveal â no clip-path (clip-path caused white gaps) */
+/* Solid-bg slide-up reveal Ã¢ÂÂ no clip-path (clip-path caused white gaps) */
 .about-who-enter {
   --who-enter: 0;
   position: relative;
@@ -2390,7 +2448,7 @@ body.cart-open {
   background: #d4c2aa;
 }
 
-/* Mocha cap shrinks as beige section rises â overlap illusion over Our Story */
+/* Mocha cap shrinks as beige section rises Ã¢ÂÂ overlap illusion over Our Story */
 .about-who-enter::before {
   content: "";
   position: absolute;
@@ -2654,7 +2712,7 @@ body.cart-open {
   }
 }
 
-/* Nutrition page â section backgrounds */
+/* Nutrition page Ã¢ÂÂ section backgrounds */
 .page-nutrition {
   --nutrition-benefits-bg: #c5a58d;
   --nutrition-compare-bg: #f3efe8;
@@ -2843,7 +2901,7 @@ body.cart-open {
   border-color: rgba(74, 44, 34, 0.28);
 }
 
-/* Shared hero â section wave (nutrition, about, products) */
+/* Shared hero Ã¢ÂÂ section wave (nutrition, about, products) */
 .entry-wave {
   position: absolute;
   left: 0;
@@ -2887,7 +2945,7 @@ body.cart-open {
   fill: var(--nutrition-benefits-bg);
 }
 
-/* Large botanical flower accent Â transparent, floats over wave */
+/* Large botanical flower accent ÃÂ transparent, floats over wave */
 @keyframes nutritionEntryRise {
   to {
     opacity: 1;
@@ -2903,7 +2961,7 @@ body.cart-open {
   scroll-margin-top: 5rem;
 }
 
-/* Benefits band â Did you know + Nuts & nourishment (shared bg) */
+/* Benefits band Ã¢ÂÂ Did you know + Nuts & nourishment (shared bg) */
 .nutrition-benefits-band {
   position: relative;
   z-index: 1;
@@ -3162,7 +3220,7 @@ body.cart-open {
   transform: translateX(3px);
 }
 
-/* Benefits spotlight â inside benefits band */
+/* Benefits spotlight Ã¢ÂÂ inside benefits band */
 .nutrition-spotlight {
   position: relative;
   z-index: 1;
@@ -3279,7 +3337,7 @@ body.cart-open {
   background: linear-gradient(180deg, var(--cream) 0%, var(--cream) 38%, var(--paper) 38%, var(--paper) 100%);
 }
 
-/* Nutrition tools + allergies Â panel scroll entry */
+/* Nutrition tools + allergies ÃÂ panel scroll entry */
 .nutrition-panel {
   position: relative;
   z-index: 1;
@@ -3876,7 +3934,7 @@ body.cart-open {
   gap: 2rem;
 }
 
-/* Footer Â cream nuts flatlay bg + brand brown text (logo reserved for later) */
+/* Footer ÃÂ cream nuts flatlay bg + brand brown text (logo reserved for later) */
 .site-footer {
   position: relative;
   color: var(--brown-deep);
@@ -4693,7 +4751,7 @@ body.cart-open {
   }
 }
 
-/* âââ Product detail page âââ */
+/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ Product detail page Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
 .pd-main {
   background: var(--paper);
   padding: 2rem 0 5rem;
