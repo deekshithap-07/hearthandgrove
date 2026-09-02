@@ -815,7 +815,7 @@ body.cart-open {
   align-items: center;
 }
 
-/* Hero fills one viewport  one scroll reaches the next section. */
+/* Hero fills one viewport Â one scroll reaches the next section. */
 .hero-flat.hero-motion {
   min-height: 100vh;
   min-height: 100dvh;
@@ -829,7 +829,7 @@ body.cart-open {
   fill: #e8e3db;
 }
 
-/* Home hero — slightly taller so no white strip shows above the wave */
+/* Home hero â slightly taller so no white strip shows above the wave */
 #hero.hero-flat.hero-motion {
   min-height: calc(100dvh + 1.25rem);
 }
@@ -942,7 +942,7 @@ body.cart-open {
   transition-delay: 0.36s;
 }
 
-/* Scroll-over entry  sections rising above previous */
+/* Scroll-over entry Â sections rising above previous */
 .reveal-over {
   opacity: 0;
   transform: translateY(72px) scale(0.97);
@@ -1006,7 +1006,7 @@ body.cart-open {
   max-width: 36rem;
 }
 
-/* What we offer — warm brand wash + cards over type watermark (home only) */
+/* What we offer â warm brand wash + cards over type watermark (home only) */
 .offer {
   position: relative;
   background: linear-gradient(180deg, #e8e3db 0%, #e4ddd2 55%, #dfd6c9 100%);
@@ -1235,7 +1235,7 @@ body.cart-open {
   transform: translateY(-12px);
 }
 
-/* Branded Hearth & Grove pack  scroll entry (different per product) + select */
+/* Branded Hearth & Grove pack Â scroll entry (different per product) + select */
 .product-pack {
   position: relative;
   aspect-ratio: 5 / 6;
@@ -1421,45 +1421,151 @@ body.cart-open {
 
 @media (max-width: 900px) {
   .catalogue-shop-compose {
-    min-height: clamp(680px, 95vh, 900px);
+    min-height: auto;
+    padding-bottom: 2rem;
   }
 
   .catalogue-shop .offer-bg-writing {
     padding-top: calc(var(--entry-wave-h) + 0.85rem);
-    padding-bottom: clamp(2.25rem, 5vh, 3.25rem);
+    padding-bottom: clamp(1.5rem, 4vh, 2.25rem);
   }
 
   .catalogue-shop .offer-stage {
-    top: calc(var(--entry-wave-h) * 0.5 + clamp(2rem, 12vw, 4.25rem) * 1.02 + 1rem);
-    bottom: calc(clamp(3.5rem, 22%, 5.5rem) + clamp(2rem, 12vw, 4.25rem) + clamp(2.75rem, 6vh, 4rem));
-    padding-top: 0.35rem;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0 0.75rem;
+    align-items: stretch;
   }
 
   .catalogue-shop-cta {
-    bottom: clamp(2.25rem, 5vh, 3.35rem);
+    position: relative;
+    bottom: auto;
+    margin: 1.5rem auto 0.5rem;
+  }
+
+  .offer {
+    padding-block: calc(3.25rem + var(--entry-wave-h) * 0.28) 0;
+  }
+
+  .offer-compose {
+    padding-bottom: 1.5rem;
   }
 
   .offer-bg-writing {
     padding-inline: 0.5rem;
+    padding-bottom: 0.75rem;
   }
 
   .offer-bg-row span {
-    font-size: clamp(2rem, 12vw, 4.25rem);
+    font-size: clamp(1.65rem, 9.5vw, 3.25rem);
     letter-spacing: 0.01em;
   }
 
   .offer-stage {
-    top: calc(clamp(2rem, 12vw, 4.25rem) * 0.9 + 0.35rem);
-    bottom: calc(clamp(2.25rem, 16%, 3.75rem) + clamp(2rem, 12vw, 4.25rem) + clamp(1.75rem, 3.5vh, 2.5rem));
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
     width: 100%;
+    margin-top: 1rem;
     padding: 0 0.75rem;
+    align-items: stretch;
   }
 
   .offer-cta {
-    bottom: clamp(1.75rem, 3.5vh, 2.65rem);
+    position: relative;
+    bottom: auto;
+    margin: 1.75rem auto 2rem;
     max-width: calc(100% - 2rem);
     padding: 1rem 1.25rem;
     font-size: 0.88rem;
+  }
+
+  .offer-title {
+    font-size: clamp(2.35rem, 9vw, 3.35rem);
+  }
+
+  .offer-sub {
+    font-size: 0.95rem;
+    padding-inline: 0.25rem;
+  }
+
+  .shop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
+    width: 100%;
+    gap: clamp(0.75rem, 3vw, 1.15rem);
+  }
+
+  .shop-item-link {
+    max-width: none;
+  }
+
+  .shop-item-body {
+    padding: 0.85rem 0.75rem 0.95rem;
+  }
+
+  .shop-item-body h3 {
+    font-size: 1rem;
+  }
+
+  .shop-item-explore {
+    font-size: 0.78rem;
+  }
+
+  .compare-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+    gap: 0.85rem 1rem;
+  }
+
+  .compare {
+    padding: 1.35rem 1rem 1.5rem;
+  }
+
+  .compare-photo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .nutrient {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .nutrient span:first-child {
+    font-size: 0.62rem;
+  }
+
+  .site-footer {
+    padding-top: clamp(2.75rem, 7vw, 3.5rem);
+  }
+
+  .footer-flower-accent {
+    left: clamp(0.75rem, 3vw, 1.15rem);
+    width: clamp(2.85rem, 8vw, 3.6rem);
+    transform: translateY(-42%);
+  }
+
+  .footer-connect {
+    gap: 2rem;
+    padding-inline: 0.25rem;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-connect-lead {
+    max-width: 20rem;
   }
 }
 
@@ -1609,7 +1715,7 @@ body.cart-open {
   text-align: center;
 }
 
-/* Catalogue shop — same warm brand wash + type watermark as home What we offer */
+/* Catalogue shop â same warm brand wash + type watermark as home What we offer */
 .catalogue-shop {
   position: relative;
   z-index: 1;
@@ -1888,14 +1994,43 @@ body.cart-open {
 }
 
 @media (max-width: 640px) {
-  .shop-grid {
-    grid-template-columns: minmax(0, 280px);
-    max-width: 280px;
-  }
-
   .shop-filters {
     gap: 0.25rem 0.4rem;
     font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding-inline: 0.25rem;
+  }
+
+  .catalogue-hero-inner {
+    padding: 4.75rem 0 clamp(5.5rem, 12vh, 7rem);
+  }
+
+  .catalogue-shop-inner {
+    padding-inline: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .compare-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .shop-grid {
+    gap: 0.65rem;
+  }
+
+  .shop-item-body h3 {
+    font-size: 0.92rem;
+  }
+
+  .shop-item-body .price {
+    font-size: 0.82rem;
+  }
+
+  .offer-header {
+    padding-inline: 0.5rem;
   }
 }
 
@@ -1910,7 +2045,7 @@ body.cart-open {
   }
 }
 
-/* About page — Nutfruit cinematic entry + story + leaf + who we are */
+/* About page â Nutfruit cinematic entry + story + leaf + who we are */
 .page-about main {
   background: #a88772;
 }
@@ -2245,7 +2380,7 @@ body.cart-open {
   margin-top: clamp(-5rem, -14vh, -2.5rem);
 }
 
-/* Solid-bg slide-up reveal — no clip-path (clip-path caused white gaps) */
+/* Solid-bg slide-up reveal â no clip-path (clip-path caused white gaps) */
 .about-who-enter {
   --who-enter: 0;
   position: relative;
@@ -2255,7 +2390,7 @@ body.cart-open {
   background: #d4c2aa;
 }
 
-/* Mocha cap shrinks as beige section rises — overlap illusion over Our Story */
+/* Mocha cap shrinks as beige section rises â overlap illusion over Our Story */
 .about-who-enter::before {
   content: "";
   position: absolute;
@@ -2519,7 +2654,7 @@ body.cart-open {
   }
 }
 
-/* Nutrition page — section backgrounds */
+/* Nutrition page â section backgrounds */
 .page-nutrition {
   --nutrition-benefits-bg: #c5a58d;
   --nutrition-compare-bg: #f3efe8;
@@ -2708,7 +2843,7 @@ body.cart-open {
   border-color: rgba(74, 44, 34, 0.28);
 }
 
-/* Shared hero → section wave (nutrition, about, products) */
+/* Shared hero â section wave (nutrition, about, products) */
 .entry-wave {
   position: absolute;
   left: 0;
@@ -2752,7 +2887,7 @@ body.cart-open {
   fill: var(--nutrition-benefits-bg);
 }
 
-/* Large botanical flower accent  transparent, floats over wave */
+/* Large botanical flower accent Â transparent, floats over wave */
 @keyframes nutritionEntryRise {
   to {
     opacity: 1;
@@ -2768,7 +2903,7 @@ body.cart-open {
   scroll-margin-top: 5rem;
 }
 
-/* Benefits band — Did you know + Nuts & nourishment (shared bg) */
+/* Benefits band â Did you know + Nuts & nourishment (shared bg) */
 .nutrition-benefits-band {
   position: relative;
   z-index: 1;
@@ -3027,7 +3162,7 @@ body.cart-open {
   transform: translateX(3px);
 }
 
-/* Benefits spotlight — inside benefits band */
+/* Benefits spotlight â inside benefits band */
 .nutrition-spotlight {
   position: relative;
   z-index: 1;
@@ -3144,7 +3279,7 @@ body.cart-open {
   background: linear-gradient(180deg, var(--cream) 0%, var(--cream) 38%, var(--paper) 38%, var(--paper) 100%);
 }
 
-/* Nutrition tools + allergies  panel scroll entry */
+/* Nutrition tools + allergies Â panel scroll entry */
 .nutrition-panel {
   position: relative;
   z-index: 1;
@@ -3190,31 +3325,15 @@ body.cart-open {
 
 .compare-grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 1.5rem 1.75rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
   max-width: 860px;
   margin-inline: auto;
   align-items: start;
 }
 
 .compare-divider {
-  display: grid;
-  place-items: center;
-  padding-top: 7.5rem;
-  color: var(--brown-warm);
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.35rem;
-}
-
-.compare-divider span {
-  width: 2.5rem;
-  height: 2.5rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(74, 44, 34, 0.15);
-  border-radius: 50%;
-  background: var(--paper);
+  display: none;
 }
 
 .compare-col select {
@@ -3651,16 +3770,6 @@ body.cart-open {
     padding-top: 1.75rem;
   }
 
-  .compare-grid {
-    grid-template-columns: 1fr;
-    max-width: 360px;
-  }
-
-  .compare-divider {
-    padding-top: 0;
-    padding-block: 0.25rem;
-  }
-
   .benefit-finder {
     grid-template-columns: 1fr;
     text-align: center;
@@ -3767,7 +3876,7 @@ body.cart-open {
   gap: 2rem;
 }
 
-/* Footer  cream nuts flatlay bg + brand brown text (logo reserved for later) */
+/* Footer Â cream nuts flatlay bg + brand brown text (logo reserved for later) */
 .site-footer {
   position: relative;
   color: var(--brown-deep);
@@ -4000,8 +4109,9 @@ body.cart-open {
   .footer-connect {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2.75rem;
+    gap: 2rem;
     min-height: 0;
+    padding-top: 0.35rem;
   }
 
   .footer-left,
@@ -4583,7 +4693,7 @@ body.cart-open {
   }
 }
 
-/* ——— Product detail page ——— */
+/* âââ Product detail page âââ */
 .pd-main {
   background: var(--paper);
   padding: 2rem 0 5rem;
