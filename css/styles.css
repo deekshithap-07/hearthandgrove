@@ -1615,6 +1615,92 @@ body.cart-open {
   .footer-connect-lead {
     max-width: 20rem;
   }
+
+  /* Products page — clean stacked mobile layout */
+  .page-catalogue .catalogue-shop {
+    padding-bottom: 2.5rem;
+    overflow: hidden;
+  }
+
+  .page-catalogue .catalogue-shop-compose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    padding: calc(var(--entry-wave-h) + 0.65rem) 0 1.5rem;
+  }
+
+  .page-catalogue .catalogue-shop .offer-bg-writing {
+    display: none;
+  }
+
+  .page-catalogue .catalogue-shop .offer-stage {
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0 0.75rem;
+  }
+
+  .page-catalogue .shop-grid {
+    grid-template-columns: 1fr;
+    max-width: min(100%, 300px);
+    margin-inline: auto;
+    gap: 1.15rem;
+  }
+
+  .page-catalogue .catalogue-shop-cta {
+    position: static;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: 300px;
+    margin: 1.5rem auto 0;
+    padding: 0 0.75rem;
+  }
+
+  /* Home What we offer — same clean mobile stack */
+  #offer .offer-bg-writing {
+    display: none;
+  }
+
+  #offer .offer-compose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  #offer .offer-stage {
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    min-height: 0;
+    margin-top: 0.5rem;
+    padding: 0 0.75rem;
+  }
+
+  #offer .shop-grid {
+    grid-template-columns: 1fr;
+    max-width: min(100%, 300px);
+    margin-inline: auto;
+    gap: 1.15rem;
+  }
+
+  #offer .offer-cta {
+    position: static;
+    bottom: auto;
+    margin: 1.5rem auto 0;
+    max-width: 300px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
