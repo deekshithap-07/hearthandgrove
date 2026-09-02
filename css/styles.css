@@ -1012,7 +1012,7 @@ body.cart-open {
   background: linear-gradient(180deg, #e8e3db 0%, #e4ddd2 55%, #dfd6c9 100%);
   color: var(--ink);
   overflow: hidden;
-  z-index: 3;
+  z-index: 1;
   padding-block: calc(5.75rem + var(--entry-wave-h) * 0.38) 0;
   border-top: none;
   border-bottom: 1px solid rgba(74, 44, 34, 0.06);
@@ -1420,6 +1420,12 @@ body.cart-open {
 }
 
 @media (max-width: 900px) {
+  .offer,
+  .catalogue-shop,
+  .story {
+    z-index: 3;
+  }
+
   .catalogue-shop-compose {
     min-height: auto;
     padding-top: 0;
@@ -1653,7 +1659,7 @@ body.cart-open {
 .story {
   background: var(--brown-deep);
   position: relative;
-  z-index: 3;
+  z-index: 1;
   border-bottom: 1px solid rgba(74, 44, 34, 0.08);
   color: var(--white);
 }
@@ -1778,7 +1784,7 @@ body.cart-open {
 /* Catalogue shop Ã¢ÂÂ same warm brand wash + type watermark as home What we offer */
 .catalogue-shop {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   background: linear-gradient(180deg, #e8e3db 0%, #e4ddd2 55%, #dfd6c9 100%);
   --offer-tone: #e8e3db;
   padding: 0 0 0;
@@ -1806,6 +1812,19 @@ body.cart-open {
     min-height: clamp(760px, 92vh, 1040px);
   }
 
+  #offer .offer-stage {
+    position: absolute;
+    margin-top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100%, 720px);
+  }
+
+  #offer .offer-cta {
+    position: absolute;
+    margin-top: 0;
+  }
+
   .catalogue-shop .offer-bg-writing {
     overflow: visible;
     padding-top: calc(var(--entry-wave-h) + clamp(0.65rem, 1.8vh, 1.1rem));
@@ -1814,10 +1833,14 @@ body.cart-open {
   }
 
   .catalogue-shop .offer-stage {
+    position: absolute;
     top: calc(var(--entry-wave-h) * 0.55 + clamp(3.25rem, 11.5vw, 9.25rem) * 1.02 + clamp(0.65rem, 2vh, 1.15rem));
     bottom: calc(clamp(4.25rem, 20%, 6.5rem) + clamp(3.25rem, 11.5vw, 9.25rem) + clamp(3.25rem, 6.5vh, 4.75rem));
     align-items: flex-start;
     padding-top: 0.5rem;
+    margin-top: 0;
+    transform: translateX(-50%);
+    left: 50%;
   }
 
   .catalogue-shop-cta {
