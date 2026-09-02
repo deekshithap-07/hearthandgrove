@@ -373,7 +373,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Scroll reveal
-  const reveals = document.querySelectorAll(".reveal");
+  const reveals = document.querySelectorAll(
+    ".reveal, .reveal-over, .reveal-slide-left, .reveal-slide-right"
+  );
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
       (entries) => {
@@ -420,14 +422,25 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       card.classList.add("is-active", "is-inview");
       card.setAttribute("aria-pressed", "true");
+      // Retrigger select pulse
+      const pack = card.querySelector(".product-pack");
+      if (pack) {
+        pack.style.animation = "none";
+        void pack.offsetWidth;
+        pack.style.animation = "";
+      }
     };
 
     cards.forEach((card) => {
       if (!card.hasAttribute("role")) card.setAttribute("role", "button");
       if (!card.hasAttribute("aria-pressed")) card.setAttribute("aria-pressed", "false");
-      card.addEventListener("click", () => activateProduct(card));
+      card.addEventListener("click", (e) => {
+        if (e.target.closest("[data-add-cart]")) return;
+        activateProduct(card);
+      });
       card.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
+          if (e.target.closest("[data-add-cart]")) return;
           e.preventDefault();
           activateProduct(card);
         }
@@ -568,15 +581,86 @@ document.addEventListener("DOMContentLoaded", () => {
     benefitPanel.style.transition = "opacity 0.25s ease";
   }
 
-  // Allergy flip cards
+  // Allergy flip cards — click locks flip; hover also flips on fine pointers
   document.querySelectorAll(".flip-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      card.classList.toggle("is-flipped");
+    const syncPressed = () => {
       card.setAttribute(
         "aria-pressed",
         card.classList.contains("is-flipped") ? "true" : "false"
       );
+    };
+
+    card.addEventListener("click", () => {
+      card.classList.toggle("is-flipped");
+      syncPressed();
     });
+
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.classList.toggle("is-flipped");
+        syncPressed();
+      }
+    });
+  });
+
+  // Nutrition page — section tabs + leaf dividers
+  const nutritionTabs = document.querySelectorAll("[data-nutrition-tab]");
+  const nutritionSections = ["fact", "compare", "allergies"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  if (nutritionTabs.length && nutritionSections.length) {
+    const setActiveNutritionTab = (id) => {
+      nutritionTabs.forEach((tab) => {
+        tab.classList.toggle("is-active", tab.getAttribute("data-nutrition-tab") === id);
+      });
+    };
+
+    nutritionTabs.forEach((tab) => {
+      tab.addEventListener("click", (e) => {
+        const id = tab.getAttribute("data-nutrition-tab");
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top, behavior: "smooth" });
+        setActiveNutritionTab(id);
+        history.replaceState(null, "", `#${id}`);
+      });
+    });
+
+    if ("IntersectionObserver" in window) {
+      const nutritionTabIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActiveNutritionTab(entry.target.id);
+          });
+        },
+        { threshold: 0.28, rootMargin: "-15% 0px -45% 0px" }
+      );
+      nutritionSections.forEach((section) => nutritionTabIo.observe(section));
+    }
+  }
+
+  document.querySelectorAll(".section-leaf").forEach((leaf) => {
+    if (leaf.classList.contains("is-inview")) return;
+    if ("IntersectionObserver" in window) {
+      const leafIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-inview");
+              leafIo.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.45 }
+      );
+      leafIo.observe(leaf);
+    } else {
+      leaf.classList.add("is-inview");
+    }
   });
 
   // Single bowl in hero → travels to next section; nuts splash out/back with scroll
@@ -716,5 +800,45 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     window.addEventListener("scroll", onScroll, { passive: true });
     boot();
+  }
+
+  // About page — section tabs + floating leaf divider
+  const aboutTabs = document.querySelectorAll("[data-about-tab]");
+  const aboutSections = ["our-story", "who-we-are"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  if (aboutTabs.length && aboutSections.length) {
+    const setActiveTab = (id) => {
+      aboutTabs.forEach((tab) => {
+        tab.classList.toggle("is-active", tab.getAttribute("data-about-tab") === id);
+      });
+    };
+
+    aboutTabs.forEach((tab) => {
+      tab.addEventListener("click", (e) => {
+        const id = tab.getAttribute("data-about-tab");
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const headerOffset = 72;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top, behavior: "smooth" });
+        setActiveTab(id);
+        history.replaceState(null, "", `#${id}`);
+      });
+    });
+
+    if ("IntersectionObserver" in window) {
+      const tabIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActiveTab(entry.target.id);
+          });
+        },
+        { threshold: 0.35, rootMargin: "-15% 0px -45% 0px" }
+      );
+      aboutSections.forEach((section) => tabIo.observe(section));
+    }
   }
 });

@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
+  <body class="page-about">
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="index.html">
@@ -22,8 +22,8 @@
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="catalogue.html">Catalogue</a>
-          <a class="active" href="about.html">About Us</a>
           <a href="nutrition.html">Nutrition</a>
+          <a class="active" href="about.html">About Us</a>
         </nav>
         <div class="header-actions">
           <button class="header-icon-btn header-search-btn" type="button" aria-label="Search" aria-expanded="false" aria-controls="header-search">
@@ -79,144 +79,178 @@
       <div class="nav-mobile-panel container">
         <a href="index.html">Home</a>
         <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">About Us</a>
         <a href="nutrition.html">Nutrition</a>
+        <a href="about.html">About Us</a>
       </div>
     </header>
 
     <main>
-      <!-- Belief hero — same soft nuts flat-lay as catalogue -->
-      <section class="belief" id="about">
-        <div class="belief-media" aria-hidden="true">
-          <img src="images/nuts-flatlay.jpg" alt="" />
+      <!-- Nutfruit-style cinematic entry -->
+      <section class="about-entry" aria-labelledby="about-entry-title">
+        <div class="about-entry-media" aria-hidden="true">
+          <img src="images/story-people.jpg" alt="" />
         </div>
-        <div class="belief-overlay" aria-hidden="true"></div>
-        <div class="belief-content reveal">
-          <header class="page-hero-header">
-            <h1>About Us</h1>
-            <p>We believe in the quiet power of real food — nourishing tables, one handful at a time.</p>
-          </header>
+        <div class="about-entry-overlay" aria-hidden="true"></div>
+        <div class="about-entry-inner container">
+          <p class="about-entry-kicker">Hearth &amp; Grove</p>
+          <h1 id="about-entry-title">The people behind the pack</h1>
+          <p class="about-entry-lead">
+            Premium cashews and almonds — sourced with care, shared with intention.
+          </p>
+          <nav class="about-entry-tabs" aria-label="About sections">
+            <a class="about-tab is-active" href="#our-story" data-about-tab="our-story">Our Story</a>
+            <a class="about-tab" href="#who-we-are" data-about-tab="who-we-are">About Us</a>
+          </nav>
         </div>
       </section>
 
-      <!-- Established story card -->
-      <section class="about-story">
-        <div class="container">
-          <div class="about-story-card reveal">
-            <div class="about-story-media">
-              <img
-                src="images/cashews-bowl.jpg"
-                alt="Roasted cashew nuts in a bowl"
-              />
-            </div>
-            <div class="about-story-copy">
-              <h2>Established with care.</h2>
-              <p>
-                Hearth & Grove began with a love for honest food: nuts that taste like they came from
-                somewhere real. We source cashews and almonds with intention, pack them with care,
-                and share them with the people we cook and gather with.
-              </p>
-              <p>
-                From grove to hearth, we keep value close to the source — choosing quality over noise,
-                and connection over complication. Every pack is meant to feel grounding, clean, and
-                ready for everyday tables.
-              </p>
-              <p>
-                We believe nourishment should feel simple: premium nuts, thoughtfully presented, and
-                rooted in the places and people behind them.
-              </p>
-              <a class="btn btn-outline-dark" href="catalogue.html">View our products</a>
-            </div>
+      <!-- Our Story — same layout language as home -->
+      <section class="section about-story-block" id="our-story">
+        <div class="container story-layout">
+          <div class="story-visual reveal">
+            <img
+              src="images/story-people.jpg"
+              alt="People gathering around a table with Hearth and Grove nuts"
+            />
+          </div>
+          <div class="about-story-text">
+            <p class="section-label reveal">Our story</p>
+            <h2 class="section-title reveal">It started with one honest handful.</h2>
+            <p class="section-lead reveal">
+              We wanted nuts that tasted real — clean, full of flavour, and easy to trust. So we
+              built Hearth &amp; Grove around that idea: find the best cashews and almonds, pack them
+              with care, and bring them to the tables we share.
+            </p>
+            <p class="about-story-body reveal reveal-delay-1">
+              From grove to hearth, nothing fancy gets in the way. Quality over noise. Connection
+              over complication. Every pack is meant to feel grounding — something you reach for
+              without thinking twice.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- Mission + Quality -->
-      <section class="about-purpose">
+      <!-- Soft leaf divider between sections -->
+      <div class="section-leaf" aria-hidden="true">
+        <div class="section-leaf-line"></div>
+        <span class="section-leaf-mark">
+          <svg viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              class="leaf-body"
+              d="M24 4C24 4 8 18 8 36c0 10.5 7.2 20 16 24 8.8-4 16-13.5 16-24C40 18 24 4 24 4z"
+              fill="currentColor"
+              opacity="0.88"
+            />
+            <path
+              class="leaf-vein"
+              d="M24 10v46"
+              stroke="var(--paper)"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              opacity="0.55"
+            />
+            <path
+              class="leaf-vein"
+              d="M24 22c-5 4-8 9-9 14M24 30c5 3.5 8 8 9 13"
+              stroke="var(--paper)"
+              stroke-width="1.1"
+              stroke-linecap="round"
+              opacity="0.4"
+            />
+          </svg>
+        </span>
+        <div class="section-leaf-line"></div>
+      </div>
+
+      <!-- About Us — only what matters -->
+      <section class="about-who" id="who-we-are">
         <div class="container">
-          <header class="about-purpose-header reveal">
-            <p class="section-label">About Us</p>
-            <h2>Connecting through premium nuts</h2>
+          <header class="about-who-header reveal">
+            <p class="section-label">About us</p>
+            <h2>What we stand for</h2>
             <p>
-              We believe in the value of connection — between land, people, and the table.
+              We exist to make premium nuts feel approachable — rooted in care, clear in quality,
+              and always ready for everyday life.
             </p>
           </header>
 
-          <div class="about-purpose-grid">
-            <article class="reveal">
-              <h3>Our Mission</h3>
+          <div class="about-who-grid">
+            <article class="about-who-item reveal">
+              <h3>Our mission</h3>
               <p>
-                To bring carefully sourced cashews and almonds to everyday kitchens — clean,
-                nourishing, and honest — while staying close to the craft of real food.
+                Bring carefully sourced cashews and almonds into everyday kitchens — nourishing,
+                honest, and free of fuss.
               </p>
             </article>
-            <article class="reveal reveal-delay-1">
-              <h3>Quality Experience</h3>
+            <article class="about-who-item reveal reveal-delay-1">
+              <h3>How we choose</h3>
               <p>
-                From selection to packing, we focus on freshness, flavour, and clarity. What you see
-                is what you get: premium nuts, simply and carefully prepared.
+                We look for freshness, flavour, and clarity first. If it doesn’t taste right or feel
+                right, it doesn’t make the pack.
+              </p>
+            </article>
+            <article class="about-who-item reveal reveal-delay-2">
+              <h3>Who it’s for</h3>
+              <p>
+                Anyone who wants real food on the table — for quiet snacks, shared meals, or the
+                small rituals that keep you going.
               </p>
             </article>
           </div>
-        </div>
-      </section>
 
-      <!-- Purpose band -->
-      <section class="about-band">
-        <div class="container about-band-inner reveal">
-          <h2>A purpose-led house for people &amp; table</h2>
-          <p>
-            We exist to make nourishing nuts feel approachable — rooted in care, shared with warmth,
-            and always easy to return to.
-          </p>
-          <a class="btn btn-gold" href="nutrition.html">Explore nutrition</a>
+          <div class="about-who-cta reveal">
+            <a class="btn btn-dark" href="catalogue.html">Shop our products</a>
+            <a class="btn btn-outline-dark" href="nutrition.html">See nutrition</a>
+          </div>
         </div>
       </section>
     </main>
 
-        <footer class="site-footer" id="contact">
-      <div class="footer-bg" aria-hidden="true">
-        <img
-          class="footer-bg-scatter"
-          src="images/nuts-flatlay.jpg"
-          alt=""
-        />
+    <footer class="site-footer" id="contact">
+      <div class="footer-bg-photo" aria-hidden="true">
+        <img src="images/footer-nuts-flat.jpg" alt="" />
       </div>
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <div class="logo">
-            <span class="logo-mark">Hearth & Grove</span>
-            <span class="logo-sub">Nuts · Nourish · Nature</span>
+      <div class="container footer-connect">
+        <div class="footer-left">
+          <div class="footer-left-above">
+            <h2 class="footer-connect-title">Connection</h2>
+            <p class="footer-connect-lead">
+              Experience premium nuts through meaningful, everyday connections.
+            </p>
           </div>
-          <p>Experience premium nuts through meaningful, everyday connections.</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Get Social</h4>
-          <div class="socials" aria-label="Social links">
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="Facebook">FB</a>
-            <a href="#" aria-label="LinkedIn">IN</a>
+          <div class="footer-left-below">
+            <div class="footer-socials" aria-label="Social links">
+              <a href="#" aria-label="Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 9.5H3.8v10.7h2.7V9.5zM5.15 4.2a1.6 1.6 0 110 3.2 1.6 1.6 0 010-3.2zM20.2 13.1c0-2.9-1.55-4.25-3.6-4.25-1.66 0-2.4.9-2.82 1.55V9.5h-2.7c.04.85 0 10.7 0 10.7h2.7v-6z"/></svg>
+              </a>
+            </div>
+            <p class="footer-copy">© 2026. All rights reserved.</p>
           </div>
         </div>
 
-        <div class="footer-col footer-links">
-          <ul>
-            <li><a href="about.html">Our Mission &amp; Vision</a></li>
-            <li><a href="#reviews">Customer Reviews</a></li>
-          </ul>
+        <div class="footer-right">
+          <div class="footer-right-above">
+            <ul class="footer-quick-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="catalogue.html">Catalogue</a></li>
+              <li><a href="nutrition.html">Nutrition</a></li>
+              <li><a href="#shipping">Shipping &amp; Returns</a></li>
+            </ul>
+          </div>
+          <div class="footer-right-below">
+            <h3 class="footer-contacts-title">Contacts</h3>
+            <ul class="footer-contacts">
+              <li>+254 700 000 000</li>
+            </ul>
+            <a class="footer-email" href="mailto:hello@hearthandgrove.com">hello@hearthandgrove.com</a>
+          </div>
         </div>
-
-        <div class="footer-col footer-links">
-          <ul>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-            <li><a href="#shipping">Shipping &amp; Returns</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <span>© 2026 Hearth & Grove. All rights reserved.</span>
-        <span>Customer care: +254 700 000 000 · hello@hearthandgrove.com</span>
       </div>
     </footer>
 
