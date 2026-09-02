@@ -1422,33 +1422,24 @@ body.cart-open {
 @media (max-width: 900px) {
   .catalogue-shop-compose {
     min-height: auto;
-    padding-top: calc(var(--entry-wave-h) + 0.55rem);
-    padding-bottom: 1.25rem;
+    padding-top: 0;
+    padding-bottom: clamp(2rem, 5vh, 3rem);
   }
 
   .catalogue-shop .offer-bg-writing {
-    padding-top: 0.35rem;
-    padding-bottom: 0;
-  }
-
-  .catalogue-shop .offer-stage {
-    position: relative;
-    top: auto;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    margin-top: 0.35rem;
-    padding: 0 0.35rem;
-    align-items: stretch;
-    z-index: 2;
-    min-height: clamp(250px, 68vw, 340px);
+    padding-top: calc(var(--entry-wave-h) * 0.35 + 0.35rem);
+    padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
   }
 
   .catalogue-shop-cta {
-    position: relative;
-    bottom: auto;
-    margin: 1.5rem auto 0.5rem;
+    position: absolute;
+    z-index: 3;
+    bottom: clamp(1.35rem, 3.2vh, 2rem);
+    left: 0;
+    right: 0;
+    width: fit-content;
+    max-width: calc(100% - 1.5rem);
+    margin: 0 auto;
   }
 
   .offer {
@@ -1458,31 +1449,21 @@ body.cart-open {
   .offer-compose,
   .catalogue-shop-compose {
     position: relative;
-    padding-bottom: 1.25rem;
+    padding-bottom: clamp(2rem, 5vh, 3rem);
   }
 
   .offer .offer-bg-writing,
   .catalogue-shop .offer-bg-writing {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    inset: auto;
     left: 50%;
     width: 100vw;
-    height: 100%;
+    height: auto;
     margin-left: -50vw;
-    padding: 0.35rem 0.4rem 0;
-    gap: 0.08rem;
-    justify-content: center;
+    padding: 0.15rem clamp(0.35rem, 2vw, 0.65rem) clamp(1.25rem, 3.5vh, 2rem);
+    gap: clamp(0.08rem, 0.4vh, 0.2rem);
+    justify-content: flex-start;
     overflow: hidden;
-  }
-
-  .offer .offer-bg-row:nth-child(n + 4),
-  .catalogue-shop .offer-bg-row:nth-child(n + 4) {
-    display: none;
-  }
-
-  .offer-bg-writing {
-    padding-inline: 0.4rem;
-    padding-bottom: 0;
   }
 
   .offer-bg-row {
@@ -1490,34 +1471,49 @@ body.cart-open {
   }
 
   .offer-bg-row span {
-    font-size: clamp(1.15rem, 7vw, 1.85rem);
+    font-size: clamp(2rem, 10vw, 3.5rem);
     letter-spacing: 0;
-    line-height: 1;
+    line-height: 0.92;
   }
 
   .offer-header {
     margin-bottom: 0.35rem;
   }
 
+  #offer .offer-header {
+    position: relative;
+    z-index: 3;
+  }
+
   .offer-stage,
   .catalogue-shop .offer-stage {
-    position: relative;
-    top: auto;
-    bottom: auto;
-    left: auto;
-    transform: none;
+    position: absolute;
+    top: calc(clamp(2rem, 10vw, 3.5rem) * 0.88 + clamp(0.2rem, 0.8vh, 0.4rem));
+    bottom: calc(clamp(1.75rem, 3.2rem, 3.75rem) + clamp(2rem, 10vw, 3.5rem) + clamp(1.15rem, 2.8vh, 1.85rem));
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
-    margin-top: 0.35rem;
-    padding: 0 0.35rem;
-    align-items: stretch;
+    margin-top: 0;
+    padding: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
     z-index: 2;
-    min-height: clamp(250px, 68vw, 340px);
+    min-height: 0;
+    pointer-events: none;
+  }
+
+  .offer-stage .shop-grid,
+  .catalogue-shop .offer-stage .shop-grid {
+    pointer-events: auto;
   }
 
   .offer-cta {
-    position: relative;
-    bottom: auto;
-    margin: 1.25rem auto 1.5rem;
+    position: absolute;
+    z-index: 3;
+    bottom: clamp(1.35rem, 3.2vh, 2rem);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     max-width: calc(100% - 1.5rem);
     padding: 0.95rem 1.1rem;
     font-size: 0.86rem;
@@ -1616,126 +1612,9 @@ body.cart-open {
     max-width: 20rem;
   }
 
-  /* Products page — clean stacked mobile layout */
   .page-catalogue .catalogue-shop {
     padding-bottom: 2.5rem;
     overflow: hidden;
-  }
-
-  .page-catalogue .catalogue-shop-compose {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    min-height: clamp(480px, 120vw, 620px);
-    padding: calc(var(--entry-wave-h) + 0.65rem) 0 1.5rem;
-  }
-
-  .page-catalogue .catalogue-shop .offer-bg-writing {
-    display: flex;
-    position: absolute;
-    inset: 0;
-    left: 50%;
-    width: 100vw;
-    height: 100%;
-    margin-left: -50vw;
-    z-index: 0;
-    padding: 0.5rem 0.35rem;
-    gap: 0.12rem;
-    justify-content: center;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .page-catalogue .catalogue-shop .offer-stage {
-    position: relative;
-    z-index: 2;
-    top: auto;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    min-height: 0;
-    margin: 0;
-    padding: 0 0.75rem;
-  }
-
-  .page-catalogue .shop-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 100%;
-    margin-inline: auto;
-    gap: clamp(0.6rem, 2.8vw, 0.9rem);
-  }
-
-  .page-catalogue .catalogue-shop-cta {
-    position: relative;
-    z-index: 2;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    width: 100%;
-    max-width: 300px;
-    margin: 1.5rem auto 0;
-    padding: 0 0.75rem;
-  }
-
-  /* Home What we offer — same clean mobile stack */
-  #offer .offer-compose {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    min-height: clamp(520px, 130vw, 680px);
-    padding-bottom: 2rem;
-  }
-
-  #offer .offer-bg-writing {
-    display: flex;
-    position: absolute;
-    inset: 0;
-    left: 50%;
-    width: 100vw;
-    height: 100%;
-    margin-left: -50vw;
-    z-index: 0;
-    padding: 0.5rem 0.35rem;
-    gap: 0.12rem;
-    justify-content: center;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  #offer .offer-header {
-    position: relative;
-    z-index: 3;
-  }
-
-  #offer .offer-stage {
-    position: relative;
-    z-index: 2;
-    top: auto;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    min-height: 0;
-    margin-top: 0.5rem;
-    padding: 0 0.75rem;
-  }
-
-  #offer .shop-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 100%;
-    margin-inline: auto;
-    gap: clamp(0.6rem, 2.8vw, 0.9rem);
-  }
-
-  #offer .offer-cta {
-    position: relative;
-    z-index: 2;
-    bottom: auto;
-    margin: 1.5rem auto 0;
-    max-width: 300px;
   }
 }
 
@@ -2206,12 +2085,13 @@ body.cart-open {
 
   .offer .offer-bg-row span,
   .catalogue-shop .offer-bg-row span {
-    font-size: clamp(0.95rem, 5.6vw, 1.35rem);
+    font-size: clamp(1.75rem, 9.5vw, 2.85rem);
   }
 
   .offer-stage,
   .catalogue-shop .offer-stage {
-    min-height: clamp(220px, 64vw, 300px);
+    top: calc(clamp(1.75rem, 9.5vw, 2.85rem) * 0.88 + 0.15rem);
+    bottom: calc(clamp(1.5rem, 2.85rem, 3.25rem) + clamp(1.75rem, 9.5vw, 2.85rem) + clamp(1rem, 2.5vh, 1.65rem));
   }
 }
 
