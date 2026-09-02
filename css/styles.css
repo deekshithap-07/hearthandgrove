@@ -1012,7 +1012,7 @@ body.cart-open {
   background: linear-gradient(180deg, #e8e3db 0%, #e4ddd2 55%, #dfd6c9 100%);
   color: var(--ink);
   overflow: hidden;
-  z-index: 1;
+  z-index: 3;
   padding-block: calc(5.75rem + var(--entry-wave-h) * 0.38) 0;
   border-top: none;
   border-bottom: 1px solid rgba(74, 44, 34, 0.06);
@@ -1490,7 +1490,7 @@ body.cart-open {
   }
 
   .offer-bg-row span {
-    font-size: clamp(1.05rem, 6.2vw, 1.65rem);
+    font-size: clamp(1.15rem, 7vw, 1.85rem);
     letter-spacing: 0;
     line-height: 1;
   }
@@ -1626,16 +1626,30 @@ body.cart-open {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: auto;
+    position: relative;
+    min-height: clamp(480px, 120vw, 620px);
     padding: calc(var(--entry-wave-h) + 0.65rem) 0 1.5rem;
   }
 
   .page-catalogue .catalogue-shop .offer-bg-writing {
-    display: none;
+    display: flex;
+    position: absolute;
+    inset: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    margin-left: -50vw;
+    z-index: 0;
+    padding: 0.5rem 0.35rem;
+    gap: 0.12rem;
+    justify-content: center;
+    overflow: hidden;
+    pointer-events: none;
   }
 
   .page-catalogue .catalogue-shop .offer-stage {
-    position: static;
+    position: relative;
+    z-index: 2;
     top: auto;
     bottom: auto;
     left: auto;
@@ -1647,14 +1661,15 @@ body.cart-open {
   }
 
   .page-catalogue .shop-grid {
-    grid-template-columns: 1fr;
-    max-width: min(100%, 300px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
     margin-inline: auto;
-    gap: 1.15rem;
+    gap: clamp(0.6rem, 2.8vw, 0.9rem);
   }
 
   .page-catalogue .catalogue-shop-cta {
-    position: static;
+    position: relative;
+    z-index: 2;
     bottom: auto;
     left: auto;
     right: auto;
@@ -1665,19 +1680,39 @@ body.cart-open {
   }
 
   /* Home What we offer — same clean mobile stack */
-  #offer .offer-bg-writing {
-    display: none;
-  }
-
   #offer .offer-compose {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    min-height: clamp(520px, 130vw, 680px);
     padding-bottom: 2rem;
   }
 
+  #offer .offer-bg-writing {
+    display: flex;
+    position: absolute;
+    inset: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    margin-left: -50vw;
+    z-index: 0;
+    padding: 0.5rem 0.35rem;
+    gap: 0.12rem;
+    justify-content: center;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  #offer .offer-header {
+    position: relative;
+    z-index: 3;
+  }
+
   #offer .offer-stage {
-    position: static;
+    position: relative;
+    z-index: 2;
     top: auto;
     bottom: auto;
     left: auto;
@@ -1689,14 +1724,15 @@ body.cart-open {
   }
 
   #offer .shop-grid {
-    grid-template-columns: 1fr;
-    max-width: min(100%, 300px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
     margin-inline: auto;
-    gap: 1.15rem;
+    gap: clamp(0.6rem, 2.8vw, 0.9rem);
   }
 
   #offer .offer-cta {
-    position: static;
+    position: relative;
+    z-index: 2;
     bottom: auto;
     margin: 1.5rem auto 0;
     max-width: 300px;
@@ -1728,6 +1764,7 @@ body.cart-open {
 .story {
   background: var(--brown-deep);
   position: relative;
+  z-index: 3;
   border-bottom: 1px solid rgba(74, 44, 34, 0.08);
   color: var(--white);
 }
@@ -1852,7 +1889,7 @@ body.cart-open {
 /* Catalogue shop Ã¢ÂÂ same warm brand wash + type watermark as home What we offer */
 .catalogue-shop {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: linear-gradient(180deg, #e8e3db 0%, #e4ddd2 55%, #dfd6c9 100%);
   --offer-tone: #e8e3db;
   padding: 0 0 0;
@@ -4788,7 +4825,6 @@ body.cart-open {
   .nutrition-benefits,
   .benefits-main,
   .compare-grid,
-  .shop-grid,
   .flip-grid,
   .mission-grid,
   .cc-mission-grid,
