@@ -21,7 +21,7 @@
         </a>
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a href="catalogue.html">Catalogue</a>
+          <a href="catalogue.html">Products</a>
           <a href="nutrition.html">Nutrition</a>
           <a class="active" href="about.html">About Us</a>
         </nav>
@@ -78,7 +78,7 @@
       </div>
       <div class="nav-mobile-panel container">
         <a href="index.html">Home</a>
-        <a href="catalogue.html">Catalogue</a>
+        <a href="catalogue.html">Products</a>
         <a href="nutrition.html">Nutrition</a>
         <a href="about.html">About Us</a>
       </div>
@@ -88,40 +88,61 @@
       <!-- Nutfruit-style cinematic entry -->
       <section class="about-entry" aria-labelledby="about-entry-title">
         <div class="about-entry-media" aria-hidden="true">
-          <img src="images/story-people.jpg" alt="" />
+          <img src="images/hero-entry-flatlay.jpg" alt="" />
         </div>
         <div class="about-entry-overlay" aria-hidden="true"></div>
         <div class="about-entry-inner container">
           <p class="about-entry-kicker">Hearth &amp; Grove</p>
           <h1 id="about-entry-title">The people behind the pack</h1>
           <p class="about-entry-lead">
-            Premium cashews and almonds — sourced with care, shared with intention.
+            Nourishment from the grove — sourced with care, shared with intention.
           </p>
           <nav class="about-entry-tabs" aria-label="About sections">
-            <a class="about-tab is-active" href="#our-story" data-about-tab="our-story">Our Story</a>
+            <a class="about-tab" href="#our-story" data-about-tab="our-story">Our Story</a>
             <a class="about-tab" href="#who-we-are" data-about-tab="who-we-are">About Us</a>
           </nav>
+        </div>
+
+        <div class="about-entry-wave entry-wave" aria-hidden="true">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48 L1440,120 L0,120 Z"
+              fill="#a88772"
+            />
+            <path
+              class="entry-wave-accent"
+              d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48"
+            />
+          </svg>
         </div>
       </section>
 
       <!-- Our Story — same layout language as home -->
-      <section class="section about-story-block" id="our-story">
+      <section class="section about-story-block about-story-enter" id="our-story">
+        <div class="about-story-curve" aria-hidden="true">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0,72 C220,18 420,108 680,48 C900,4 1120,96 1440,36 L1440,120 L0,120 Z"
+              fill="#a88772"
+            />
+          </svg>
+        </div>
         <div class="container story-layout">
-          <div class="story-visual reveal">
+          <div class="story-visual about-enter-visual">
             <img
               src="images/story-people.jpg"
               alt="People gathering around a table with Hearth and Grove nuts"
             />
           </div>
           <div class="about-story-text">
-            <p class="section-label reveal">Our story</p>
-            <h2 class="section-title reveal">It started with one honest handful.</h2>
-            <p class="section-lead reveal">
+            <p class="section-label about-enter-item">Our story</p>
+            <h2 class="section-title about-enter-item">It started with one honest handful.</h2>
+            <p class="section-lead about-enter-item">
               We wanted nuts that tasted real — clean, full of flavour, and easy to trust. So we
               built Hearth &amp; Grove around that idea: find the best cashews and almonds, pack them
               with care, and bring them to the tables we share.
             </p>
-            <p class="about-story-body reveal reveal-delay-1">
+            <p class="about-story-body about-enter-item">
               From grove to hearth, nothing fancy gets in the way. Quality over noise. Connection
               over complication. Every pack is meant to feel grounding — something you reach for
               without thinking twice.
@@ -130,66 +151,34 @@
         </div>
       </section>
 
-      <!-- Soft leaf divider between sections -->
-      <div class="section-leaf" aria-hidden="true">
-        <div class="section-leaf-line"></div>
-        <span class="section-leaf-mark">
-          <svg viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              class="leaf-body"
-              d="M24 4C24 4 8 18 8 36c0 10.5 7.2 20 16 24 8.8-4 16-13.5 16-24C40 18 24 4 24 4z"
-              fill="currentColor"
-              opacity="0.88"
-            />
-            <path
-              class="leaf-vein"
-              d="M24 10v46"
-              stroke="var(--paper)"
-              stroke-width="1.4"
-              stroke-linecap="round"
-              opacity="0.55"
-            />
-            <path
-              class="leaf-vein"
-              d="M24 22c-5 4-8 9-9 14M24 30c5 3.5 8 8 9 13"
-              stroke="var(--paper)"
-              stroke-width="1.1"
-              stroke-linecap="round"
-              opacity="0.4"
-            />
-          </svg>
-        </span>
-        <div class="section-leaf-line"></div>
-      </div>
-
       <!-- About Us — only what matters -->
-      <section class="about-who" id="who-we-are">
-        <div class="container">
-          <header class="about-who-header reveal">
-            <p class="section-label">About us</p>
-            <h2>What we stand for</h2>
-            <p>
+      <section class="about-who about-who-enter" id="who-we-are">
+        <div class="container about-who-stage">
+          <header class="about-who-header who-enter-header">
+            <p class="section-label who-enter-item">About us</p>
+            <h2 class="who-enter-item">What we stand for</h2>
+            <p class="who-enter-item">
               We exist to make premium nuts feel approachable — rooted in care, clear in quality,
               and always ready for everyday life.
             </p>
           </header>
 
-          <div class="about-who-grid">
-            <article class="about-who-item reveal">
+          <div class="about-who-grid who-enter-grid">
+            <article class="about-who-item who-enter-item">
               <h3>Our mission</h3>
               <p>
                 Bring carefully sourced cashews and almonds into everyday kitchens — nourishing,
                 honest, and free of fuss.
               </p>
             </article>
-            <article class="about-who-item reveal reveal-delay-1">
+            <article class="about-who-item who-enter-item">
               <h3>How we choose</h3>
               <p>
                 We look for freshness, flavour, and clarity first. If it doesn’t taste right or feel
                 right, it doesn’t make the pack.
               </p>
             </article>
-            <article class="about-who-item reveal reveal-delay-2">
+            <article class="about-who-item who-enter-item">
               <h3>Who it’s for</h3>
               <p>
                 Anyone who wants real food on the table — for quiet snacks, shared meals, or the
@@ -198,7 +187,7 @@
             </article>
           </div>
 
-          <div class="about-who-cta reveal">
+          <div class="about-who-cta who-enter-cta">
             <a class="btn btn-dark" href="catalogue.html">Shop our products</a>
             <a class="btn btn-outline-dark" href="nutrition.html">See nutrition</a>
           </div>
@@ -207,6 +196,9 @@
     </main>
 
     <footer class="site-footer" id="contact">
+      <div class="footer-flower-accent" aria-hidden="true">
+        <img src="images/footer-flower.png" alt="" />
+      </div>
       <div class="footer-bg-photo" aria-hidden="true">
         <img src="images/footer-nuts-flat.jpg" alt="" />
       </div>
@@ -238,7 +230,7 @@
           <div class="footer-right-above">
             <ul class="footer-quick-links">
               <li><a href="about.html">About Us</a></li>
-              <li><a href="catalogue.html">Catalogue</a></li>
+              <li><a href="catalogue.html">Products</a></li>
               <li><a href="nutrition.html">Nutrition</a></li>
               <li><a href="#shipping">Shipping &amp; Returns</a></li>
             </ul>

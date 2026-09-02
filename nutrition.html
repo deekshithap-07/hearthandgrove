@@ -21,9 +21,9 @@
         </a>
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a href="catalogue.html">Catalogue</a>
-          <a href="about.html">About Us</a>
+          <a href="catalogue.html">Products</a>
           <a class="active" href="nutrition.html">Nutrition</a>
+          <a href="about.html">About Us</a>
         </nav>
         <div class="header-actions">
           <button class="header-icon-btn header-search-btn" type="button" aria-label="Search" aria-expanded="false" aria-controls="header-search">
@@ -78,7 +78,7 @@
       </div>
       <div class="nav-mobile-panel container">
         <a href="index.html">Home</a>
-        <a href="catalogue.html">Catalogue</a>
+        <a href="catalogue.html">Products</a>
         <a href="nutrition.html">Nutrition</a>
         <a href="about.html">About Us</a>
       </div>
@@ -88,86 +88,105 @@
       <!-- Nutfruit-style hero — curvy wave + grove leaf -->
       <section class="nutrition-entry" aria-labelledby="nutrition-entry-title">
         <div class="nutrition-entry-media" aria-hidden="true">
-          <img src="images/mixed-nuts.jpg" alt="" />
+          <img src="images/hero-entry-flatlay.jpg" alt="" />
         </div>
         <div class="nutrition-entry-overlay" aria-hidden="true"></div>
 
         <div class="nutrition-entry-inner container">
           <p class="nutrition-entry-kicker">Hearth &amp; Grove</p>
           <h1 id="nutrition-entry-title">
-            How much do you know about<br />cashews and almonds?
+            Nature's quiet gift<br />in every handful.
           </h1>
           <p class="nutrition-entry-lead">Find out below — energy, nutrients, and clear answers on allergies.</p>
           <nav class="nutrition-entry-tabs" aria-label="Nutrition sections">
-            <a class="nutrition-tab nutrition-tab-primary is-active" href="#fact" data-nutrition-tab="fact">Benefits</a>
-            <a class="nutrition-tab nutrition-tab-secondary" href="#compare" data-nutrition-tab="compare">Nutrition</a>
-            <a class="nutrition-tab nutrition-tab-outline" href="#allergies" data-nutrition-tab="allergies">Allergies</a>
+            <a class="nutrition-tab" href="#fact" data-nutrition-tab="fact">Benefits</a>
+            <a class="nutrition-tab" href="#compare" data-nutrition-tab="compare">Nutrition</a>
+            <a class="nutrition-tab" href="#allergies" data-nutrition-tab="allergies">Allergies</a>
           </nav>
         </div>
 
-        <div class="nutrition-entry-wave" aria-hidden="true">
+        <div class="nutrition-entry-wave entry-wave" aria-hidden="true">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48 L1440,120 L0,120 Z"
-              fill="var(--paper)"
+              fill="#c5a58d"
+            />
+            <path
+              class="entry-wave-accent"
+              d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48"
             />
           </svg>
         </div>
       </section>
 
-      <!-- Did you know — Nutfruit Facts band -->
-      <section class="nutrition-fact-band" id="fact">
-        <div class="container">
-          <div class="did-you-know reveal">
-            <div class="did-you-know-label-col">
-              <p class="did-you-know-eyebrow">did you know</p>
-              <p class="did-you-know-eyebrow did-you-know-eyebrow-alt">fact?</p>
+      <!-- Benefits band — Did you know + Nuts & nourishment (one section) -->
+      <section class="nutrition-benefits-band" id="fact">
+        <div class="nutrition-dyk">
+          <div class="container nutrition-dyk-stage">
+            <div class="nutrition-dyk-compose">
+              <div class="nutrition-dyk-image">
+                <img
+                  src="images/nutrition-dyk-bowl.jpg"
+                  alt="A bowl of premium mixed nuts"
+                  data-dyk-parallax
+                />
+              </div>
+              <div class="nutrition-dyk-panel">
+                <span class="nutrition-dyk-label" data-dyk-reveal>Nutrition</span>
+                <div class="nutrition-dyk-panel-inner">
+                  <h2 class="nutrition-dyk-heading" data-dyk-reveal>
+                    <span class="nutrition-dyk-heading-mask">
+                      <span class="nutrition-dyk-heading-text">Did you know?</span>
+                    </span>
+                    <span class="nutrition-dyk-heading-mask">
+                      <span class="nutrition-dyk-heading-text nutrition-dyk-heading-sub">
+                        Nuts are little powerhouses.
+                      </span>
+                    </span>
+                  </h2>
+                  <span class="nutrition-dyk-rule" data-dyk-reveal aria-hidden="true"></span>
+                  <p class="nutrition-dyk-text" data-dyk-reveal>
+                    Nuts make excellent everyday snacks — they bring fibre, unsaturated fats, plant
+                    protein, vitamins and minerals that may help keep you fuller and support steady
+                    energy between meals.
+                  </p>
+                  <a class="nutrition-dyk-cta" href="#benefits" data-dyk-reveal>
+                    Read more
+                    <span class="nutrition-dyk-cta-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="did-you-know-body">
-              <p>
-                Nuts make excellent everyday snacks — they bring fibre, unsaturated fats, plant
-                protein, vitamins and minerals that may help keep you fuller and support steady
-                energy between meals.
-              </p>
-              <a class="did-you-know-link" href="#benefits">
-                Read more
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-            <div class="did-you-know-media" aria-hidden="true">
-              <img src="images/almonds.jpg" alt="" />
-            </div>
+          </div>
+        </div>
+
+        <div class="nutrition-spotlight" id="benefits">
+          <div class="container">
+            <article class="nutrition-spotlight-card reveal-over">
+              <div class="nutrition-spotlight-media">
+                <img src="images/a_close_up_warm_rustic_food_still_life_on_a_wood.png" alt="Jars of premium cashews and almonds" />
+              </div>
+              <div class="nutrition-spotlight-panel">
+                <p class="nutrition-spotlight-tag">Nuts &amp; nourishment</p>
+                <h2>Cashews &amp; almonds benefits</h2>
+                <p>
+                  Nuts bring healthy fats, plant protein, fibre, and key minerals in one simple
+                  portion. Cashews offer a creamy, mineral-rich bite; almonds deliver vitamin E and
+                  a satisfying crunch — both support steady energy without fuss.
+                </p>
+                <ul class="benefits-list">
+                  <li>Support heart health with unsaturated fats</li>
+                  <li>Help keep you fuller between meals</li>
+                  <li>Provide magnesium, vitamin E, and plant protein</li>
+                  <li>Fit easily into snacks, salads, and cooking</li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Benefits spotlight — subscription-style scroll-over entry -->
-      <section class="nutrition-spotlight" id="benefits">
-        <div class="container">
-          <article class="nutrition-spotlight-card reveal-over">
-            <div class="nutrition-spotlight-media">
-              <img src="images/nuts-jars.jpg" alt="Jars of premium cashews and almonds" />
-            </div>
-            <div class="nutrition-spotlight-panel">
-              <p class="nutrition-spotlight-tag">Nuts &amp; nourishment</p>
-              <h2>Cashews &amp; almonds benefits</h2>
-              <p>
-                Nuts bring healthy fats, plant protein, fibre, and key minerals in one simple
-                portion. Cashews offer a creamy, mineral-rich bite; almonds deliver vitamin E and
-                a satisfying crunch — both support steady energy without fuss.
-              </p>
-              <ul class="benefits-list">
-                <li>Support heart health with unsaturated fats</li>
-                <li>Help keep you fuller between meals</li>
-                <li>Provide magnesium, vitamin E, and plant protein</li>
-                <li>Fit easily into snacks, salads, and cooking</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Nut nutrition + benefit finder — Nutfruit Nutrition style -->
+      <!-- Nut nutrition — compare tool -->
       <section class="nutrition-tools nutrition-panel" id="compare">
         <div class="container">
           <header class="nutrition-tools-header reveal">
@@ -202,33 +221,6 @@
                   <img id="nut-photo-right" src="images/almonds-pile.jpg" alt="Almond" />
                 </div>
                 <div class="nutrient-list" id="nut-list-right"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="benefit-finder reveal">
-            <div class="benefit-finder-head">
-              <p class="section-label">Explore</p>
-              <h2>Nutrients benefit finder</h2>
-              <p class="benefit-finder-lead">
-                Tap a focus area to see how our cashews and almonds support everyday wellbeing.
-              </p>
-            </div>
-            <div class="benefit-finder-body">
-              <div class="benefit-chips" role="list">
-                <button type="button" class="benefit-chip is-active" data-benefit="heart" role="listitem">Heart health</button>
-                <button type="button" class="benefit-chip" data-benefit="energy" role="listitem">Steady energy</button>
-                <button type="button" class="benefit-chip" data-benefit="brain" role="listitem">Brain focus</button>
-                <button type="button" class="benefit-chip" data-benefit="skin" role="listitem">Skin nourishment</button>
-                <button type="button" class="benefit-chip" data-benefit="muscle" role="listitem">Muscle support</button>
-                <button type="button" class="benefit-chip" data-benefit="digestion" role="listitem">Digestion</button>
-              </div>
-              <div class="benefit-panel" id="benefit-panel" aria-live="polite">
-                <h3>Heart health</h3>
-                <p>
-                  Unsaturated fats in cashews and almonds support healthy cholesterol balance as part of
-                  a varied diet — a simple handful, thoughtfully enjoyed.
-                </p>
               </div>
             </div>
           </div>
@@ -341,6 +333,9 @@
     </main>
 
     <footer class="site-footer" id="contact">
+      <div class="footer-flower-accent" aria-hidden="true">
+        <img src="images/footer-flower.png" alt="" />
+      </div>
       <div class="footer-bg-photo" aria-hidden="true">
         <img src="images/footer-nuts-flat.jpg" alt="" />
       </div>
@@ -372,7 +367,7 @@
           <div class="footer-right-above">
             <ul class="footer-quick-links">
               <li><a href="about.html">About Us</a></li>
-              <li><a href="catalogue.html">Catalogue</a></li>
+              <li><a href="catalogue.html">Products</a></li>
               <li><a href="nutrition.html">Nutrition</a></li>
               <li><a href="#shipping">Shipping &amp; Returns</a></li>
             </ul>

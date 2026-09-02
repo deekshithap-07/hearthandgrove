@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // —— Cart (drawer + localStorage) ——
   const CART_KEY = "hg-cart";
-  const CATALOGUE = {
+  const CATALOGUE = window.HG_PRODUCT_BY_ID || {
     cashew: {
       id: "cashew",
       name: "Cashew Nuts",
@@ -127,6 +127,23 @@ document.addEventListener("DOMContentLoaded", () => {
     items.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   const formatMoney = (n) => `$${n.toFixed(2)}`;
+
+  const normalizeImg = (img) => (img || "").replace(/^\.\.\//, "");
+
+  const siteAssetBase = () => {
+    const href =
+      document
+        .querySelector('link[rel="stylesheet"][href*="styles.css"]')
+        ?.getAttribute("href") || "";
+    return href.replace(/css\/styles\.css.*$/, "");
+  };
+
+  const cartImgSrc = (img) => {
+    const path = normalizeImg(img);
+    if (!path) return "";
+    if (path.startsWith("http") || path.startsWith("/")) return path;
+    return `${siteAssetBase()}${path}`;
+  };
 
   const ensureCartDom = () => {
     if (document.getElementById("cart-drawer")) return;
@@ -228,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
         (item) => `
       <div class="cart-line" data-id="${item.id}">
         <div class="cart-line-media">
-          <img src="${item.img}" alt="" />
+          <img src="${cartImgSrc(item.img)}" alt="" />
         </div>
         <div class="cart-line-info">
           <h3>${item.name}</h3>
@@ -245,19 +262,20 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   };
 
-  const addToCart = (product) => {
+  const addToCart = (product, qty = 1) => {
     if (!product?.id) return;
+    const amount = Math.max(1, Number(qty) || 1);
     const items = readCart();
     const existing = items.find((i) => i.id === product.id);
     if (existing) {
-      existing.qty += 1;
+      existing.qty += amount;
     } else {
       items.push({
         id: product.id,
         name: product.name,
         price: Number(product.price) || 0,
-        img: product.img,
-        qty: 1,
+        img: normalizeImg(product.img),
+        qty: amount,
       });
     }
     writeCart(items);
@@ -365,6 +383,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (product) addToCart(product);
   });
 
+  document.addEventListener("hg-add-to-cart", (e) => {
+    const { id, name, price, img, qty } = e.detail || {};
+    if (!id) return;
+    addToCart({ id, name, price, img }, qty);
+  });
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       setSearchOpen(false);
@@ -393,62 +417,57 @@ document.addEventListener("DOMContentLoaded", () => {
     reveals.forEach((el) => el.classList.add("visible"));
   }
 
-  // Product cards — scroll reveal + select animation (home + catalogue)
-  const initSelectableProducts = (selector) => {
-    const cards = document.querySelectorAll(selector);
-    if (!cards.length) return;
+  // Shop page — navigate to product detail; preserve return state
+  const SHOP_RETURN_KEY = "hg-shop-return";
 
-    if ("IntersectionObserver" in window) {
-      const productIo = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-inview");
-              productIo.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.28, rootMargin: "0px 0px -8% 0px" }
-      );
-      cards.forEach((card) => productIo.observe(card));
-    } else {
-      cards.forEach((card) => card.classList.add("is-inview"));
-    }
-
-    const activateProduct = (card) => {
-      cards.forEach((c) => {
-        c.classList.remove("is-active");
-        c.setAttribute("aria-pressed", "false");
-      });
-      card.classList.add("is-active", "is-inview");
-      card.setAttribute("aria-pressed", "true");
-      // Retrigger select pulse
-      const pack = card.querySelector(".product-pack");
-      if (pack) {
-        pack.style.animation = "none";
-        void pack.offsetWidth;
-        pack.style.animation = "";
-      }
-    };
-
-    cards.forEach((card) => {
-      if (!card.hasAttribute("role")) card.setAttribute("role", "button");
-      if (!card.hasAttribute("aria-pressed")) card.setAttribute("aria-pressed", "false");
-      card.addEventListener("click", (e) => {
-        if (e.target.closest("[data-add-cart]")) return;
-        activateProduct(card);
-      });
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          if (e.target.closest("[data-add-cart]")) return;
-          e.preventDefault();
-          activateProduct(card);
-        }
-      });
-    });
+  const saveShopReturnState = () => {
+    const activeFilter =
+      document.querySelector(".shop-filters button.active")?.dataset.filter || "all";
+    sessionStorage.setItem(
+      SHOP_RETURN_KEY,
+      JSON.stringify({ scrollY: window.scrollY, filter: activeFilter })
+    );
   };
 
-  initSelectableProducts(".product-card, .shop-item");
+  const restoreShopReturnState = () => {
+    if (!document.querySelector(".shop-grid")) return;
+    const raw = sessionStorage.getItem(SHOP_RETURN_KEY);
+    if (!raw) return;
+    try {
+      const { scrollY, filter } = JSON.parse(raw);
+      if (filter) {
+        const btn = document.querySelector(`.shop-filters button[data-filter="${filter}"]`);
+        if (btn) {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          applyShopFilter(filter);
+        }
+      }
+      if (typeof scrollY === "number") {
+        requestAnimationFrame(() => window.scrollTo(0, scrollY));
+      }
+    } catch {
+      /* ignore */
+    }
+    sessionStorage.removeItem(SHOP_RETURN_KEY);
+  };
+
+  document.querySelectorAll(".shop-item-link").forEach((link) => {
+    link.addEventListener("click", () => saveShopReturnState());
+  });
+
+  document.querySelector("[data-pd-back]")?.addEventListener("click", (e) => {
+    const fromProducts =
+      document.referrer.includes("catalogue") || sessionStorage.getItem(SHOP_RETURN_KEY);
+    if (fromProducts) {
+      e.preventDefault();
+      if (window.history.length > 1) {
+        history.back();
+      } else {
+        window.location.href = e.currentTarget.getAttribute("href");
+      }
+    }
+  });
 
   // Catalogue filters (All | Cashews | Almonds | Recently Added)
   const filterBtns = document.querySelectorAll(".shop-filters button[data-filter]");
@@ -476,6 +495,8 @@ document.addEventListener("DOMContentLoaded", () => {
       applyShopFilter(btn.dataset.filter || "all");
     });
   });
+
+  restoreShopReturnState();
 
   // Nutrition compare data (per 28g / 1oz)
   const nutritionData = {
@@ -535,52 +556,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCompare("nut-left", "nut-photo-left", "nut-list-left");
   renderCompare("nut-right", "nut-photo-right", "nut-list-right");
 
-  // Nutrient benefit finder
-  const benefitCopy = {
-    heart: {
-      title: "Heart health",
-      body: "Unsaturated fats in cashews and almonds support healthy cholesterol balance as part of a varied diet — a simple handful, thoughtfully enjoyed.",
-    },
-    energy: {
-      title: "Steady energy",
-      body: "Plant protein, fibre, and healthy fats help keep energy steadier between meals — ideal for a mid-morning or afternoon snack.",
-    },
-    brain: {
-      title: "Brain focus",
-      body: "Nuts contribute nutrients linked with cognitive wellbeing. A small daily portion is an easy way to nourish focus alongside balanced meals.",
-    },
-    skin: {
-      title: "Skin nourishment",
-      body: "Almonds are a natural source of vitamin E, while cashews bring zinc and copper — minerals that support skin from the inside out.",
-    },
-    muscle: {
-      title: "Muscle support",
-      body: "Protein and magnesium in nuts help normal muscle function. Pair a handful with fruit or yoghurt for a more complete snack.",
-    },
-    digestion: {
-      title: "Digestion",
-      body: "Fibre in almonds especially supports digestive comfort. Drink water and enjoy nuts as part of a varied, plant-forward plate.",
-    },
-  };
-
-  const benefitPanel = document.getElementById("benefit-panel");
-  document.querySelectorAll(".benefit-chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll(".benefit-chip").forEach((c) => c.classList.remove("is-active"));
-      chip.classList.add("is-active");
-      const data = benefitCopy[chip.dataset.benefit];
-      if (!data || !benefitPanel) return;
-      benefitPanel.style.opacity = "0";
-      setTimeout(() => {
-        benefitPanel.innerHTML = `<h3>${data.title}</h3><p>${data.body}</p>`;
-        benefitPanel.style.opacity = "1";
-      }, 160);
-    });
-  });
-  if (benefitPanel) {
-    benefitPanel.style.transition = "opacity 0.25s ease";
-  }
-
   // Allergy flip cards — click locks flip; hover also flips on fine pointers
   document.querySelectorAll(".flip-card").forEach((card) => {
     const syncPressed = () => {
@@ -611,9 +586,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .filter(Boolean);
 
   if (nutritionTabs.length && nutritionSections.length) {
+    const nutritionSectionOrder = ["fact", "compare", "allergies"];
+    const visibleNutritionSections = new Set();
+
     const setActiveNutritionTab = (id) => {
       nutritionTabs.forEach((tab) => {
-        tab.classList.toggle("is-active", tab.getAttribute("data-nutrition-tab") === id);
+        tab.classList.toggle("is-active", Boolean(id) && tab.getAttribute("data-nutrition-tab") === id);
       });
     };
 
@@ -634,12 +612,71 @@ document.addEventListener("DOMContentLoaded", () => {
       const nutritionTabIo = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) setActiveNutritionTab(entry.target.id);
+            if (entry.isIntersecting) {
+              visibleNutritionSections.add(entry.target.id);
+            } else {
+              visibleNutritionSections.delete(entry.target.id);
+            }
           });
+
+          if (visibleNutritionSections.size === 0) {
+            setActiveNutritionTab(null);
+            return;
+          }
+
+          const activeId = nutritionSectionOrder.find((id) => visibleNutritionSections.has(id));
+          if (activeId) setActiveNutritionTab(activeId);
         },
         { threshold: 0.28, rootMargin: "-15% 0px -45% 0px" }
       );
       nutritionSections.forEach((section) => nutritionTabIo.observe(section));
+    }
+  }
+
+  const nutritionDyk = document.querySelector(".nutrition-dyk");
+  if (nutritionDyk) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if ("IntersectionObserver" in window && !reducedMotion) {
+      const dykIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              nutritionDyk.classList.add("is-inview");
+              dykIo.unobserve(nutritionDyk);
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      );
+      dykIo.observe(nutritionDyk);
+    } else {
+      nutritionDyk.classList.add("is-inview");
+    }
+
+    const dykImg = nutritionDyk.querySelector("[data-dyk-parallax]");
+    if (dykImg && !reducedMotion) {
+      let ticking = false;
+      const updateParallax = () => {
+        const rect = nutritionDyk.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        if (rect.bottom > 0 && rect.top < viewH) {
+          const progress = (viewH - rect.top) / (viewH + rect.height);
+          const offset = (progress - 0.5) * 20;
+          dykImg.style.setProperty("--dyk-parallax", `${offset}px`);
+        }
+        ticking = false;
+      };
+      updateParallax();
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(updateParallax);
+        },
+        { passive: true }
+      );
     }
   }
 
@@ -809,9 +846,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .filter(Boolean);
 
   if (aboutTabs.length && aboutSections.length) {
+    const aboutSectionOrder = ["our-story", "who-we-are"];
+    const visibleAboutSections = new Set();
+
     const setActiveTab = (id) => {
       aboutTabs.forEach((tab) => {
-        tab.classList.toggle("is-active", tab.getAttribute("data-about-tab") === id);
+        tab.classList.toggle("is-active", Boolean(id) && tab.getAttribute("data-about-tab") === id);
       });
     };
 
@@ -833,12 +873,96 @@ document.addEventListener("DOMContentLoaded", () => {
       const tabIo = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) setActiveTab(entry.target.id);
+            if (entry.isIntersecting) {
+              visibleAboutSections.add(entry.target.id);
+            } else {
+              visibleAboutSections.delete(entry.target.id);
+            }
           });
+
+          if (visibleAboutSections.size === 0) {
+            setActiveTab(null);
+            return;
+          }
+
+          const activeId = aboutSectionOrder.find((id) => visibleAboutSections.has(id));
+          if (activeId) setActiveTab(activeId);
         },
         { threshold: 0.35, rootMargin: "-15% 0px -45% 0px" }
       );
       aboutSections.forEach((section) => tabIo.observe(section));
+    }
+  }
+
+  const aboutStoryEnter = document.querySelector(".about-story-enter");
+  if (aboutStoryEnter) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) {
+      aboutStoryEnter.classList.add("is-settled");
+      aboutStoryEnter.style.setProperty("--about-enter", "1");
+    } else {
+      let ticking = false;
+      const updateAboutStoryEnter = () => {
+        const rect = aboutStoryEnter.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const start = vh * 0.94;
+        const end = vh * 0.14;
+        const range = start - end;
+        const progress =
+          range <= 0 ? 1 : Math.min(1, Math.max(0, (start - rect.top) / range));
+        aboutStoryEnter.style.setProperty("--about-enter", progress.toFixed(4));
+        aboutStoryEnter.classList.toggle("is-settled", progress >= 0.998);
+        ticking = false;
+      };
+
+      updateAboutStoryEnter();
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(updateAboutStoryEnter);
+        },
+        { passive: true }
+      );
+      window.addEventListener("resize", updateAboutStoryEnter, { passive: true });
+    }
+  }
+
+  const aboutWhoEnter = document.querySelector(".about-who-enter");
+  if (aboutWhoEnter) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) {
+      aboutWhoEnter.classList.add("is-settled");
+      aboutWhoEnter.style.setProperty("--who-enter", "1");
+    } else {
+      let ticking = false;
+      const updateAboutWhoEnter = () => {
+        const rect = aboutWhoEnter.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const start = vh * 0.92;
+        const end = vh * 0.08;
+        const range = start - end;
+        const progress =
+          range <= 0 ? 1 : Math.min(1, Math.max(0, (start - rect.top) / range));
+        aboutWhoEnter.style.setProperty("--who-enter", progress.toFixed(4));
+        aboutWhoEnter.classList.toggle("is-settled", progress >= 0.998);
+        ticking = false;
+      };
+
+      updateAboutWhoEnter();
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(updateAboutWhoEnter);
+        },
+        { passive: true }
+      );
+      window.addEventListener("resize", updateAboutWhoEnter, { passive: true });
     }
   }
 });

@@ -26,9 +26,9 @@
 
         <nav class="nav" aria-label="Primary">
           <a class="active" href="index.html">Home</a>
-          <a href="catalogue.html">Catalogue</a>
-          <a href="about.html">About Us</a>
+          <a href="catalogue.html">Products</a>
           <a href="nutrition.html">Nutrition</a>
+          <a href="about.html">About Us</a>
         </nav>
 
         <div class="header-actions">
@@ -86,9 +86,9 @@
 
       <div class="nav-mobile-panel container">
         <a href="index.html">Home</a>
-        <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">About Us</a>
+        <a href="catalogue.html">Products</a>
         <a href="nutrition.html">Nutrition</a>
+        <a href="about.html">About Us</a>
         <a href="catalogue.html">View catalogue</a>
       </div>
     </header>
@@ -118,17 +118,22 @@
             <a class="btn btn-dark btn-pill" href="catalogue.html">View catalogue</a>
           </div>
         </div>
+
+        <div class="hero-flat-wave entry-wave" aria-hidden="true">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48 L1440,120 L0,120 Z"
+              fill="#e8e3db"
+            />
+            <path
+              class="entry-wave-accent"
+              d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48"
+            />
+          </svg>
+        </div>
       </section>
 
       <section class="section offer" id="offer">
-        <div class="offer-bg-writing" aria-hidden="true">
-          <span>HEARTH &amp; GROVE</span>
-          <span>NUTS · NOURISH</span>
-          <span>HEARTH &amp; GROVE</span>
-          <span>FROM THE GROVE</span>
-          <span>HEARTH &amp; GROVE</span>
-        </div>
-
         <div class="container offer-inner">
           <header class="offer-header reveal">
             <h2 class="offer-title">What we offer</h2>
@@ -137,64 +142,65 @@
             </p>
           </header>
 
-          <div class="offer-stage">
-            <p class="offer-rail reveal" aria-hidden="true">NUTS <span>→</span></p>
+          <div class="offer-compose">
+            <div class="offer-bg-writing" aria-hidden="true">
+              <div class="offer-bg-row">
+                <span>Nourish</span><span>Natural</span><span>Nuts</span><span>Grove</span>
+              </div>
+              <div class="offer-bg-row">
+                <span>Natural</span><span>Nuts</span><span>Grove</span><span>Nourish</span>
+              </div>
+              <div class="offer-bg-row">
+                <span>Nuts</span><span>Grove</span><span>Nourish</span><span>Natural</span>
+              </div>
+              <div class="offer-bg-row">
+                <span>Grove</span><span>Nourish</span><span>Natural</span><span>Nuts</span>
+              </div>
+              <div class="offer-bg-row offer-bg-row--cta">
+                <span>Nourish</span><span>Natural</span><span>Nuts</span><span>Grove</span>
+              </div>
+            </div>
 
-            <div class="offer-grid">
+            <div class="offer-stage">
+              <div class="shop-grid">
               <article
-                class="product-card reveal reveal-delay-1"
-                tabindex="0"
+                class="shop-item shop-item-card reveal"
                 data-product="cashew"
                 data-name="Cashew Nuts"
                 data-price="12"
                 data-img="images/cashews.jpg"
               >
-                <div class="product-pack" aria-hidden="true">
-                  <div class="pack-seal"></div>
-                  <div class="pack-body">
-                    <div class="pack-photo">
-                      <img src="images/cashews.jpg" alt="" />
-                    </div>
-                    <div class="pack-label">
-                      <span class="pack-brand">Hearth &amp; Grove</span>
-                      <span class="pack-product">Cashew Nuts</span>
-                      <span class="pack-tag">Premium · Carefully sourced</span>
-                    </div>
+                <a class="shop-item-link" href="products/cashew-nuts/">
+                  <div class="shop-item-media">
+                    <img src="images/cashews.jpg" alt="Cashew Nuts" />
                   </div>
-                </div>
-                <div class="product-card-body">
-                  <h3>Cashew Nuts</h3>
-                  <span class="product-price">from $12.00</span>
-                  <button type="button" class="btn btn-dark btn-add-cart" data-add-cart>Add to cart</button>
-                </div>
+                  <div class="shop-item-body">
+                    <h3>Cashew Nuts</h3>
+                    <p class="price">from $12.00</p>
+                    <p class="shop-item-explore">View details <span aria-hidden="true">→</span></p>
+                  </div>
+                </a>
+                <button type="button" class="btn btn-dark btn-add-cart" data-add-cart>Add to cart</button>
               </article>
 
               <article
-                class="product-card reveal reveal-delay-2"
-                tabindex="0"
+                class="shop-item shop-item-card reveal reveal-delay-1"
                 data-product="almond"
                 data-name="Almonds"
                 data-price="14"
                 data-img="images/almonds-pile.jpg"
               >
-                <div class="product-pack" aria-hidden="true">
-                  <div class="pack-seal"></div>
-                  <div class="pack-body">
-                    <div class="pack-photo">
-                      <img src="images/almonds-pile.jpg" alt="" />
-                    </div>
-                    <div class="pack-label">
-                      <span class="pack-brand">Hearth &amp; Grove</span>
-                      <span class="pack-product">Almonds</span>
-                      <span class="pack-tag">Premium · Carefully sourced</span>
-                    </div>
+                <a class="shop-item-link" href="products/almonds/">
+                  <div class="shop-item-media">
+                    <img src="images/almonds-pile.jpg" alt="Almonds" />
                   </div>
-                </div>
-                <div class="product-card-body">
-                  <h3>Almonds</h3>
-                  <span class="product-price">from $14.00</span>
-                  <button type="button" class="btn btn-dark btn-add-cart" data-add-cart>Add to cart</button>
-                </div>
+                  <div class="shop-item-body">
+                    <h3>Almonds</h3>
+                    <p class="price">from $14.00</p>
+                    <p class="shop-item-explore">View details <span aria-hidden="true">→</span></p>
+                  </div>
+                </a>
+                <button type="button" class="btn btn-dark btn-add-cart" data-add-cart>Add to cart</button>
               </article>
             </div>
           </div>
@@ -203,6 +209,7 @@
             Want more from the grove?<br />
             View more products
           </a>
+          </div>
         </div>
       </section>
       <section class="section story" id="story">
@@ -228,49 +235,54 @@
       </section>
     </main>
 
-        <footer class="site-footer" id="contact">
-      <div class="footer-bg" aria-hidden="true">
-        <img
-          class="footer-bg-scatter"
-          src="images/nuts-flatlay.jpg"
-          alt=""
-        />
+    <footer class="site-footer" id="contact">
+      <div class="footer-flower-accent" aria-hidden="true">
+        <img src="images/footer-flower.png" alt="" />
       </div>
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <div class="logo">
-            <span class="logo-mark">Hearth & Grove</span>
-            <span class="logo-sub">Nuts · Nourish · Nature</span>
-          </div>
-          <p>Experience premium nuts through meaningful, everyday connections.</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Get Social</h4>
-          <div class="socials" aria-label="Social links">
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="Facebook">FB</a>
-            <a href="#" aria-label="LinkedIn">IN</a>
-          </div>
-        </div>
-
-        <div class="footer-col footer-links">
-          <ul>
-            <li><a href="about.html">Our Mission &amp; Vision</a></li>
-            <li><a href="#reviews">Customer Reviews</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col footer-links">
-          <ul>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-            <li><a href="#shipping">Shipping &amp; Returns</a></li>
-          </ul>
-        </div>
+      <div class="footer-bg-photo" aria-hidden="true">
+        <img src="images/footer-nuts-flat.jpg" alt="" />
       </div>
-      <div class="container footer-bottom">
-        <span>© 2026 Hearth & Grove. All rights reserved.</span>
-        <span>Customer care: +254 700 000 000 · hello@hearthandgrove.com</span>
+      <div class="container footer-connect">
+        <div class="footer-left">
+          <div class="footer-left-above">
+            <h2 class="footer-connect-title">Connection</h2>
+            <p class="footer-connect-lead">
+              Experience premium nuts through meaningful, everyday connections.
+            </p>
+          </div>
+          <div class="footer-left-below">
+            <div class="footer-socials" aria-label="Social links">
+              <a href="#" aria-label="Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 9.5H3.8v10.7h2.7V9.5zM5.15 4.2a1.6 1.6 0 110 3.2 1.6 1.6 0 010-3.2zM20.2 13.1c0-2.9-1.55-4.25-3.6-4.25-1.66 0-2.4.9-2.82 1.55V9.5h-2.7c.04.85 0 10.7 0 10.7h2.7v-6c0-.32.02-.64.12-.87.26-.64.85-1.3 1.84-1.3 1.3 0 1.82.98 1.82 2.42v5.75h2.7v-6z"/></svg>
+              </a>
+            </div>
+            <p class="footer-copy">© 2026. All rights reserved.</p>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <div class="footer-right-above">
+            <ul class="footer-quick-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="catalogue.html">Products</a></li>
+              <li><a href="nutrition.html">Nutrition</a></li>
+              <li><a href="#shipping">Shipping &amp; Returns</a></li>
+            </ul>
+          </div>
+          <div class="footer-right-below">
+            <h3 class="footer-contacts-title">Contacts</h3>
+            <ul class="footer-contacts">
+              <li>+254 700 000 000</li>
+            </ul>
+            <a class="footer-email" href="mailto:hello@hearthandgrove.com">hello@hearthandgrove.com</a>
+          </div>
+        </div>
       </div>
     </footer>
 

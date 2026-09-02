@@ -3,5 +3,11 @@
   "framework": null,
   "installCommand": "",
   "buildCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/products/cashew-nuts", "destination": "/products/cashew-nuts/" },
+    { "source": "/products/almonds", "destination": "/products/almonds/" },
+    { "source": "/products/cashew-nuts.html", "destination": "/products/cashew-nuts/" },
+    { "source": "/products/almonds.html", "destination": "/products/almonds/" }
+  ]
 }

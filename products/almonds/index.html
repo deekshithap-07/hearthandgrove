@@ -3,27 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalogue — Hearth & Grove</title>
+    <title>Almonds — Hearth & Grove</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
   </head>
-  <body class="page-catalogue">
+  <body class="page-product-detail" data-product-slug="almonds">
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="index.html">
+        <a class="logo" href="../../index.html">
           <span class="logo-mark">Hearth & Grove</span>
           <span class="logo-sub">Nuts · Nourish · Nature</span>
         </a>
         <nav class="nav" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a class="active" href="catalogue.html">Products</a>
-          <a href="nutrition.html">Nutrition</a>
-          <a href="about.html">About Us</a>
+          <a href="../../index.html">Home</a>
+          <a class="active" href="../../catalogue.html">Products</a>
+          <a href="../../nutrition.html">Nutrition</a>
+          <a href="../../about.html">About Us</a>
         </nav>
         <div class="header-actions">
           <button class="header-icon-btn header-search-btn" type="button" aria-label="Search" aria-expanded="false" aria-controls="header-search">
@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="header-search" id="header-search" hidden>
-        <form class="header-search-form container" action="catalogue.html" method="get" role="search">
+        <form class="header-search-form container" action="../../catalogue.html" method="get" role="search">
           <label class="visually-hidden" for="site-search">Search products</label>
           <input id="site-search" type="search" name="q" placeholder="Search cashews, almonds…" autocomplete="off" />
           <button type="submit" class="header-icon-btn" aria-label="Submit search">
@@ -77,135 +77,64 @@
         </form>
       </div>
       <div class="nav-mobile-panel container">
-        <a href="index.html">Home</a>
-        <a href="catalogue.html">Products</a>
-        <a href="nutrition.html">Nutrition</a>
-        <a href="about.html">About Us</a>
+        <a href="../../index.html">Home</a>
+        <a href="../../catalogue.html">Products</a>
+        <a href="../../nutrition.html">Nutrition</a>
+        <a href="../../about.html">About Us</a>
       </div>
     </header>
 
-    <main>
-      <section class="catalogue-hero">
-        <div class="catalogue-hero-media" aria-hidden="true">
-          <img src="images/hero-entry-flatlay.jpg" alt="" />
-        </div>
-        <div class="catalogue-hero-overlay" aria-hidden="true"></div>
+    <main class="pd-main">
+      <div class="container pd-wrap">
+        <a class="pd-back" href="../../catalogue.html" data-pd-back>← Back to Products</a>
 
-        <div class="container catalogue-hero-inner">
-          <p class="nutrition-entry-kicker">Hearth &amp; Grove</p>
-          <header class="catalogue-shop-header reveal">
-            <h1>Shop</h1>
-            <p>Premium nuts from the grove.</p>
-          </header>
-
-          <div class="shop-filters reveal" role="tablist" aria-label="Shop filters">
-            <button type="button" class="active" data-filter="all">All</button>
-            <span class="shop-filter-sep" aria-hidden="true">|</span>
-            <button type="button" data-filter="cashew">Cashews</button>
-            <span class="shop-filter-sep" aria-hidden="true">|</span>
-            <button type="button" data-filter="almond">Almonds</button>
-            <span class="shop-filter-sep" aria-hidden="true">|</span>
-            <button type="button" data-filter="recent">Recently Added</button>
-          </div>
-        </div>
-
-        <div class="catalogue-hero-wave entry-wave" aria-hidden="true">
-          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48 L1440,120 L0,120 Z"
-              fill="#e8e3db"
-            />
-            <path
-              class="entry-wave-accent"
-              d="M0,88 C360,20 520,110 720,62 C940,8 1180,96 1440,48"
-            />
-          </svg>
-        </div>
-      </section>
-
-      <section class="catalogue-shop">
-        <div class="container catalogue-shop-inner">
-          <div class="offer-compose catalogue-shop-compose">
-            <div class="offer-bg-writing" aria-hidden="true">
-              <div class="offer-bg-row">
-                <span>Nourish</span><span>Natural</span><span>Nuts</span><span>Grove</span>
-              </div>
-              <div class="offer-bg-row">
-                <span>Natural</span><span>Nuts</span><span>Grove</span><span>Nourish</span>
-              </div>
-              <div class="offer-bg-row">
-                <span>Nuts</span><span>Grove</span><span>Nourish</span><span>Natural</span>
-              </div>
-              <div class="offer-bg-row">
-                <span>Grove</span><span>Nourish</span><span>Natural</span><span>Nuts</span>
-              </div>
-              <div class="offer-bg-row offer-bg-row--cta">
-                <span>Nourish</span><span>Natural</span><span>Nuts</span><span>Grove</span>
-              </div>
+        <div class="pd-layout">
+          <div class="pd-gallery pd-reveal">
+            <div class="pd-main-image">
+              <img data-pd-main-img src="../../images/almonds-pile.jpg" alt="Almonds" />
             </div>
-
-            <div class="offer-stage catalogue-shop-stage">
-              <div class="shop-grid">
-            <article
-              class="shop-item shop-item-card reveal"
-              data-product="cashew"
-              data-tags="cashew recent"
-              data-name="Cashew Nuts"
-              data-price="12"
-              data-img="images/cashews.jpg"
-            >
-              <a class="shop-item-link" href="products/cashew-nuts/">
-                <div class="shop-item-media">
-                  <img src="images/cashews.jpg" alt="Cashew Nuts" />
-                </div>
-                <div class="shop-item-body">
-                  <h3>Cashew Nuts</h3>
-                  <p class="price">from $12.00</p>
-                  <p class="shop-item-explore">View details <span aria-hidden="true">→</span></p>
-                </div>
-              </a>
-              <button type="button" class="btn btn-dark btn-add-cart" data-add-cart>Add to cart</button>
-            </article>
-
-            <article
-              class="shop-item shop-item-card reveal reveal-delay-1"
-              data-product="almond"
-              data-tags="almond recent"
-              data-name="Almonds"
-              data-price="14"
-              data-img="images/almonds-pile.jpg"
-            >
-              <a class="shop-item-link" href="products/almonds/">
-                <div class="shop-item-media">
-                  <img src="images/almonds-pile.jpg" alt="Almonds" />
-                </div>
-                <div class="shop-item-body">
-                  <h3>Almonds</h3>
-                  <p class="price">from $14.00</p>
-                  <p class="shop-item-explore">View details <span aria-hidden="true">→</span></p>
-                </div>
-              </a>
-              <button type="button" class="btn btn-dark btn-add-cart" data-add-cart>Add to cart</button>
-            </article>
+            <div class="pd-thumbs" data-pd-thumbs hidden></div>
           </div>
 
-          <p class="shop-empty" hidden>No results match your filter.</p>
+          <div class="pd-info">
+            <p class="pd-tag pd-reveal" data-pd-tag>Premium · Carefully sourced</p>
+            <h1 class="pd-title pd-reveal" data-pd-name>Almonds</h1>
+            <p class="pd-price pd-reveal" data-pd-price>$14.00</p>
+            <p class="pd-short pd-reveal" data-pd-short></p>
+
+            <div class="pd-purchase pd-reveal">
+              <div class="pd-qty" aria-label="Quantity">
+                <button type="button" class="pd-qty-btn" data-pd-qty-minus aria-label="Decrease quantity">−</button>
+                <input type="number" data-pd-qty value="1" min="1" max="99" aria-label="Quantity" />
+                <button type="button" class="pd-qty-btn" data-pd-qty-plus aria-label="Increase quantity">+</button>
+              </div>
+              <button type="button" class="btn btn-dark pd-add-btn" data-pd-add-cart>Add to cart</button>
             </div>
 
-            <div class="catalogue-shop-cta reveal">
-              <a class="btn btn-dark" href="nutrition.html">Explore nutrition</a>
+            <div class="pd-details pd-reveal">
+              <h2>About the product</h2>
+              <p data-pd-about></p>
+            </div>
+
+            <div class="pd-nutrition-block pd-reveal">
+              <h2>Nutritional information</h2>
+              <p class="pd-serving" data-pd-serving></p>
+              <div class="pd-nutrition" data-pd-nutrition></div>
+              <p class="pd-nutrition-note">
+                <a href="../../nutrition.html">See full nutrition &amp; benefits →</a>
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
 
     <footer class="site-footer" id="contact">
       <div class="footer-flower-accent" aria-hidden="true">
-        <img src="images/footer-flower.png" alt="" />
+        <img src="../../images/footer-flower.png" alt="" />
       </div>
       <div class="footer-bg-photo" aria-hidden="true">
-        <img src="images/footer-nuts-flat.jpg" alt="" />
+        <img src="../../images/footer-nuts-flat.jpg" alt="" />
       </div>
       <div class="container footer-connect">
         <div class="footer-left">
@@ -234,9 +163,9 @@
         <div class="footer-right">
           <div class="footer-right-above">
             <ul class="footer-quick-links">
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="catalogue.html">Products</a></li>
-              <li><a href="nutrition.html">Nutrition</a></li>
+              <li><a href="../../about.html">About Us</a></li>
+              <li><a href="../../catalogue.html">Products</a></li>
+              <li><a href="../../nutrition.html">Nutrition</a></li>
               <li><a href="#shipping">Shipping &amp; Returns</a></li>
             </ul>
           </div>
@@ -251,7 +180,9 @@
       </div>
     </footer>
 
-    <script src="js/products.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../../js/products.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/product-detail.js"></script>
   </body>
 </html>
+
