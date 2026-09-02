@@ -1423,33 +1423,34 @@ body.cart-open {
   .catalogue-shop-compose {
     min-height: auto;
     padding-top: 0;
-    padding-bottom: clamp(2rem, 5vh, 3rem);
+    padding-bottom: 1rem;
   }
 
   .catalogue-shop .offer-bg-writing {
     padding-top: calc(var(--entry-wave-h) * 0.35 + 0.35rem);
-    padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
+    padding-bottom: 0.35rem;
   }
 
   .catalogue-shop-cta {
-    position: absolute;
+    position: relative;
     z-index: 3;
-    bottom: clamp(1.35rem, 3.2vh, 2rem);
-    left: 0;
-    right: 0;
+    bottom: auto;
+    left: auto;
+    right: auto;
     width: fit-content;
     max-width: calc(100% - 1.5rem);
-    margin: 0 auto;
+    margin: 0.85rem auto 0;
+    padding-top: 0;
+    text-align: center;
   }
 
   .offer {
     padding-block: calc(2.35rem + var(--entry-wave-h) * 0.22) 0;
   }
 
-  .offer-compose,
-  .catalogue-shop-compose {
+  .offer-compose {
     position: relative;
-    padding-bottom: clamp(2rem, 5vh, 3rem);
+    padding-bottom: 1.25rem;
   }
 
   .offer .offer-bg-writing,
@@ -1460,7 +1461,7 @@ body.cart-open {
     width: 100vw;
     height: auto;
     margin-left: -50vw;
-    padding: 0.15rem clamp(0.35rem, 2vw, 0.65rem) clamp(1.25rem, 3.5vh, 2rem);
+    padding: 0.15rem clamp(0.35rem, 2vw, 0.65rem) 0.35rem;
     gap: clamp(0.08rem, 0.4vh, 0.2rem);
     justify-content: flex-start;
     overflow: hidden;
@@ -1487,13 +1488,13 @@ body.cart-open {
 
   .offer-stage,
   .catalogue-shop .offer-stage {
-    position: absolute;
-    top: calc(clamp(2rem, 10vw, 3.5rem) * 0.88 + clamp(0.2rem, 0.8vh, 0.4rem));
-    bottom: calc(clamp(1.75rem, 3.2rem, 3.75rem) + clamp(2rem, 10vw, 3.5rem) + clamp(1.15rem, 2.8vh, 1.85rem));
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
     width: 100%;
-    margin-top: 0;
+    margin-top: clamp(-4.75rem, -13vw, -2.85rem);
     padding: 0 0.5rem;
     align-items: center;
     justify-content: center;
@@ -1502,18 +1503,27 @@ body.cart-open {
     pointer-events: none;
   }
 
+  #offer .offer-stage {
+    margin-top: clamp(-5.25rem, -15vw, -3.15rem);
+  }
+
+  .catalogue-shop .offer-stage {
+    margin-top: clamp(-4rem, -11vw, -2.35rem);
+    padding-top: 0;
+  }
+
   .offer-stage .shop-grid,
   .catalogue-shop .offer-stage .shop-grid {
     pointer-events: auto;
   }
 
   .offer-cta {
-    position: absolute;
+    position: relative;
     z-index: 3;
-    bottom: clamp(1.35rem, 3.2vh, 2rem);
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: 0.85rem auto 0;
     max-width: calc(100% - 1.5rem);
     padding: 0.95rem 1.1rem;
     font-size: 0.86rem;
@@ -1785,25 +1795,41 @@ body.cart-open {
 
 .catalogue-shop-compose {
   margin-top: 0;
-  min-height: clamp(760px, 92vh, 1040px);
-}
-
-.catalogue-shop .offer-bg-writing {
-  overflow: visible;
-  padding-top: calc(var(--entry-wave-h) + clamp(0.65rem, 1.8vh, 1.1rem));
-  padding-bottom: clamp(2.75rem, 5.5vh, 4rem);
-  gap: clamp(0.25rem, 0.9vh, 0.55rem);
 }
 
 .catalogue-shop .offer-bg-row span {
   line-height: 1;
 }
 
-.catalogue-shop .offer-stage {
-  top: calc(var(--entry-wave-h) * 0.55 + clamp(3.25rem, 11.5vw, 9.25rem) * 1.02 + clamp(0.65rem, 2vh, 1.15rem));
-  bottom: calc(clamp(4.25rem, 20%, 6.5rem) + clamp(3.25rem, 11.5vw, 9.25rem) + clamp(3.25rem, 6.5vh, 4.75rem));
-  align-items: flex-start;
-  padding-top: 0.5rem;
+@media (min-width: 901px) {
+  .catalogue-shop-compose {
+    min-height: clamp(760px, 92vh, 1040px);
+  }
+
+  .catalogue-shop .offer-bg-writing {
+    overflow: visible;
+    padding-top: calc(var(--entry-wave-h) + clamp(0.65rem, 1.8vh, 1.1rem));
+    padding-bottom: clamp(2.75rem, 5.5vh, 4rem);
+    gap: clamp(0.25rem, 0.9vh, 0.55rem);
+  }
+
+  .catalogue-shop .offer-stage {
+    top: calc(var(--entry-wave-h) * 0.55 + clamp(3.25rem, 11.5vw, 9.25rem) * 1.02 + clamp(0.65rem, 2vh, 1.15rem));
+    bottom: calc(clamp(4.25rem, 20%, 6.5rem) + clamp(3.25rem, 11.5vw, 9.25rem) + clamp(3.25rem, 6.5vh, 4.75rem));
+    align-items: flex-start;
+    padding-top: 0.5rem;
+  }
+
+  .catalogue-shop-cta {
+    position: absolute;
+    z-index: 3;
+    bottom: clamp(2.75rem, 5.5vh, 4rem);
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0.5rem;
+  }
 }
 
 .catalogue-shop-inner {
@@ -1815,17 +1841,6 @@ body.cart-open {
 .catalogue-shop-stage .shop-empty {
   pointer-events: auto;
   margin-top: 1rem;
-}
-
-.catalogue-shop-cta {
-  position: absolute;
-  z-index: 3;
-  bottom: clamp(2.75rem, 5.5vh, 4rem);
-  left: 0;
-  right: 0;
-  text-align: center;
-  margin-top: 0;
-  padding-top: 0.5rem;
 }
 
 .catalogue-shop-header {
@@ -2088,10 +2103,12 @@ body.cart-open {
     font-size: clamp(1.75rem, 9.5vw, 2.85rem);
   }
 
-  .offer-stage,
+  #offer .offer-stage {
+    margin-top: clamp(-4.5rem, -13vw, -2.75rem);
+  }
+
   .catalogue-shop .offer-stage {
-    top: calc(clamp(1.75rem, 9.5vw, 2.85rem) * 0.88 + 0.15rem);
-    bottom: calc(clamp(1.5rem, 2.85rem, 3.25rem) + clamp(1.75rem, 9.5vw, 2.85rem) + clamp(1rem, 2.5vh, 1.65rem));
+    margin-top: clamp(-3.5rem, -9.5vw, -2.1rem);
   }
 }
 
