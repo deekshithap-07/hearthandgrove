@@ -1784,7 +1784,7 @@ body.cart-open {
     overflow-x: hidden;
   }
 
-  /* Shop mobile only — keep desktop catalogue layout untouched */
+  /* Shop mobile — mirror home offer: 2 cards + stretched watermark through CTA */
   .page-catalogue .catalogue-hero {
     height: auto;
     min-height: 0;
@@ -1827,35 +1827,70 @@ body.cart-open {
   .page-catalogue .catalogue-shop-inner {
     width: 100%;
     max-width: 100%;
-    padding-inline: 0.85rem;
+    padding-inline: 0.5rem;
     box-sizing: border-box;
   }
 
   .page-catalogue .catalogue-shop-compose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    min-height: 0;
-    padding: 0.85rem 0 1.25rem;
+    min-height: clamp(480px, 72vh, 720px);
+    padding: 0 0 1.25rem;
+    position: relative;
   }
 
   .page-catalogue .catalogue-shop .offer-bg-writing {
-    left: 0;
+    position: absolute;
+    /* Start above cards; bottom stays through Explore nutrition CTA */
+    top: clamp(-1.75rem, -4vh, -1.15rem);
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    height: auto;
+    margin-left: -50vw;
+    padding: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .page-catalogue .catalogue-shop .offer-bg-writing img {
+    display: block;
     width: 100%;
-    margin-left: 0;
+    height: 100%;
+    min-height: 0;
+    object-fit: fill;
+    object-position: center top;
+    transform: none;
+    opacity: 1;
   }
 
   .page-catalogue .catalogue-shop .offer-stage {
+    position: relative;
+    z-index: 2;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    flex: 1 1 auto;
     width: 100%;
     max-width: 100%;
-    padding: 0.5rem 0 0.25rem;
+    margin-top: clamp(2rem, 5vh, 3rem);
+    padding: clamp(0.65rem, 2.8vw, 1rem) 0.5rem;
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
   }
 
   .page-catalogue .shop-grid {
-    grid-template-columns: minmax(0, 1fr);
-    width: min(100%, 320px);
-    max-width: 320px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
     margin-inline: auto;
-    gap: 1.35rem;
+    gap: clamp(0.6rem, 2.8vw, 0.9rem);
   }
 
   .page-catalogue .shop-item {
@@ -1870,41 +1905,43 @@ body.cart-open {
   }
 
   .page-catalogue .shop-item-media {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 12 / 13;
   }
 
   .page-catalogue .shop-item-body {
-    padding: 0.85rem 0.85rem 0.9rem;
+    padding: 0.7rem 0.55rem 0.8rem;
   }
 
   .page-catalogue .shop-item-body h3 {
-    font-size: 1.2rem;
+    font-size: 0.92rem;
   }
 
   .page-catalogue .shop-item .price {
-    font-size: 0.92rem;
+    font-size: 0.86rem;
   }
 
   .page-catalogue .shop-item-explore {
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
   }
 
   .page-catalogue .shop-item-card .btn-add-cart {
-    margin-top: 0.55rem;
-    padding: 0.7rem 0.85rem;
-    font-size: 0.78rem;
-  }
-
-  .page-catalogue .catalogue-shop .offer-bg-writing img {
-    transform: none;
-    opacity: 0.45;
-    object-fit: contain;
+    margin-top: 0.45rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.68rem;
   }
 
   .page-catalogue .catalogue-shop-cta {
-    margin: 1.35rem auto 0.5rem;
-    max-width: calc(100% - 1rem);
+    position: relative;
+    z-index: 3;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: 1rem auto 1.75rem;
+    max-width: calc(100% - 1.5rem);
+    padding-top: 0;
+    text-align: center;
+    flex-shrink: 0;
   }
 
   .page-catalogue .catalogue-shop-cta .btn {
@@ -1913,8 +1950,8 @@ body.cart-open {
     max-width: 100%;
     white-space: normal;
     text-align: center;
-    padding: 0.9rem 1.25rem;
-    font-size: 0.84rem;
+    padding: 0.95rem 1.1rem;
+    font-size: 0.86rem;
   }
 }
 
@@ -2405,31 +2442,35 @@ body.cart-open {
   }
 
   .page-catalogue .catalogue-shop-inner {
-    padding-inline: 1rem;
+    padding-inline: 0.35rem;
   }
 
   .page-catalogue .shop-grid {
-    width: min(100%, 300px);
-    max-width: 300px;
-    gap: 1.15rem;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.55rem;
   }
 
   .page-catalogue .shop-item-body h3 {
-    font-size: 1.15rem;
+    font-size: 0.86rem;
     line-height: 1.2;
   }
 
   .page-catalogue .shop-item .price {
-    font-size: 0.88rem;
+    font-size: 0.78rem;
   }
 
   .page-catalogue .shop-item-explore {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .page-catalogue .shop-item-card .btn-add-cart {
-    font-size: 0.75rem;
-    padding: 0.65rem 0.75rem;
+    font-size: 0.62rem;
+    padding: 0.48rem 0.4rem;
+  }
+
+  .page-catalogue .catalogue-shop-compose {
+    min-height: clamp(460px, 70vh, 680px);
   }
 }
 
