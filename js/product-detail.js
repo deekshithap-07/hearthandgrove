@@ -118,32 +118,35 @@ function initProductDetailScroll() {
 
   const desktopMq = window.matchMedia("(min-width: 901px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducedMotion) return;
 
   const isScrollable = () => info.scrollHeight > info.clientHeight + 2;
   const atTop = () => info.scrollTop <= 1;
   const atBottom = () => info.scrollTop + info.clientHeight >= info.scrollHeight - 2;
 
-  if (!reducedMotion) {
-    info.addEventListener(
-      "wheel",
-      (e) => {
-        if (!desktopMq.matches || !isScrollable()) return;
+  const onWheel = (e) => {
+    if (!desktopMq.matches || !isScrollable()) return;
 
-        const dy = e.deltaY;
-        if (!dy) return;
+    const dy = e.deltaY;
+    if (!dy) return;
 
-        const scrollingDown = dy > 0;
-        const scrollingUp = dy < 0;
+    // Down: finish info first, then allow page scroll
+    if (dy > 0) {
+      if (!atBottom()) {
+        e.preventDefault();
+        info.scrollTop += dy;
+      }
+      return;
+    }
 
-        if (scrollingDown && !atBottom()) {
-          e.preventDefault();
-          info.scrollTop += dy;
-        } else if (scrollingUp && !atTop()) {
-          e.preventDefault();
-          info.scrollTop += dy;
-        }
-      },
-      { passive: false }
-    );
-  }
+    // Up: if page has moved, scroll page back first; else scroll info to top
+    if (window.scrollY > 2) return;
+    if (!atTop()) {
+      e.preventDefault();
+      info.scrollTop += dy;
+    }
+  };
+
+  // Capture anywhere on the page (not only when hovering the info column)
+  window.addEventListener("wheel", onWheel, { passive: false, capture: true });
 }

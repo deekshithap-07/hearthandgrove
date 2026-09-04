@@ -934,35 +934,21 @@ document.addEventListener("DOMContentLoaded", () => {
   if (aboutWhoEnter) {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (reducedMotion) {
-      aboutWhoEnter.classList.add("is-settled");
-      aboutWhoEnter.style.setProperty("--who-enter", "1");
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      aboutWhoEnter.classList.add("is-inview", "is-settled");
     } else {
-      let ticking = false;
-      const updateAboutWhoEnter = () => {
-        const rect = aboutWhoEnter.getBoundingClientRect();
-        const vh = window.innerHeight;
-        const start = vh * 0.92;
-        const end = vh * 0.08;
-        const range = start - end;
-        const progress =
-          range <= 0 ? 1 : Math.min(1, Math.max(0, (start - rect.top) / range));
-        aboutWhoEnter.style.setProperty("--who-enter", progress.toFixed(4));
-        aboutWhoEnter.classList.toggle("is-settled", progress >= 0.998);
-        ticking = false;
-      };
-
-      updateAboutWhoEnter();
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(updateAboutWhoEnter);
+      const whoIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              aboutWhoEnter.classList.add("is-inview");
+              whoIo.unobserve(aboutWhoEnter);
+            }
+          });
         },
-        { passive: true }
+        { threshold: 0.22, rootMargin: "0px 0px -12% 0px" }
       );
-      window.addEventListener("resize", updateAboutWhoEnter, { passive: true });
+      whoIo.observe(aboutWhoEnter);
     }
   }
 });
