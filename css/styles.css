@@ -2125,7 +2125,7 @@ body.cart-open {
   overflow: hidden;
   background: rgba(250, 247, 242, 0.94);
   backdrop-filter: blur(8px);
-  border: 2.5px solid var(--brown-deep);
+  border: 1.5px solid var(--brown-deep);
   box-shadow: 0 10px 28px rgba(74, 44, 34, 0.1);
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
 }
@@ -4205,8 +4205,8 @@ body.cart-open {
 .site-footer {
   position: relative;
   color: var(--brown-deep);
-  /* Match footer photo yellow so no cream/white hairline at the section join */
-  background: #fccf5a;
+  /* Softened yellow so the footer photo doesn’t feel over-bright */
+  background: #f3d98a;
   padding: clamp(1.25rem, 2.5vw, 1.85rem) 0 clamp(1.1rem, 2.25vw, 1.65rem);
   overflow: visible;
   border-top: none;
@@ -4248,6 +4248,7 @@ body.cart-open {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  opacity: 0.72;
 }
 
 .footer-connect {
@@ -5084,7 +5085,7 @@ body.cart-open {
   border-radius: 0.5rem;
   overflow: hidden;
   background: var(--cream);
-  border: 2.5px solid var(--brown-deep);
+  border: 1.5px solid var(--brown-deep);
   box-shadow: 0 20px 48px rgba(74, 44, 34, 0.1);
   aspect-ratio: 1 / 1;
   max-width: min(100%, 400px);
@@ -5114,7 +5115,7 @@ body.cart-open {
   width: 4.25rem;
   height: 4.25rem;
   padding: 0;
-  border: 2.5px solid var(--brown-deep);
+  border: 1.5px solid var(--brown-deep);
   border-radius: 0.35rem;
   overflow: hidden;
   cursor: pointer;
@@ -5124,7 +5125,7 @@ body.cart-open {
 
 .pd-thumb.is-active {
   border-color: var(--brown-mid);
-  border-width: 2.5px;
+  border-width: 1.5px;
 }
 
 .pd-thumb img {
@@ -5226,7 +5227,7 @@ body.cart-open {
 .pd-nutrition-block {
   padding: 1.25rem 1.15rem 1.15rem;
   margin-top: 1rem;
-  border: 2.5px solid var(--brown-deep);
+  border: 1.5px solid var(--brown-deep);
   border-radius: 0.5rem;
   background: rgba(250, 247, 242, 0.55);
 }
