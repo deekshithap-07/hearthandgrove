@@ -1843,10 +1843,6 @@ body.cart-open {
     margin-left: 0;
   }
 
-  .page-catalogue .catalogue-shop .offer-bg-writing img {
-    transform: scaleX(1.15);
-  }
-
   .page-catalogue .catalogue-shop .offer-stage {
     width: 100%;
     max-width: 100%;
@@ -1855,10 +1851,11 @@ body.cart-open {
   }
 
   .page-catalogue .shop-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
-    max-width: 100%;
-    gap: 0.7rem;
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 320px);
+    max-width: 320px;
+    margin-inline: auto;
+    gap: 1.35rem;
   }
 
   .page-catalogue .shop-item {
@@ -1872,31 +1869,41 @@ body.cart-open {
     max-width: none;
   }
 
+  .page-catalogue .shop-item-media {
+    aspect-ratio: 1 / 1;
+  }
+
   .page-catalogue .shop-item-body {
-    padding: 0.65rem 0.45rem 0.7rem;
+    padding: 0.85rem 0.85rem 0.9rem;
   }
 
   .page-catalogue .shop-item-body h3 {
-    font-size: clamp(0.88rem, 3.6vw, 1.05rem);
+    font-size: 1.2rem;
   }
 
   .page-catalogue .shop-item .price {
-    font-size: 0.8rem;
+    font-size: 0.92rem;
   }
 
   .page-catalogue .shop-item-explore {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
   }
 
   .page-catalogue .shop-item-card .btn-add-cart {
-    margin-top: 0.4rem;
-    padding: 0.55rem 0.5rem;
-    font-size: 0.68rem;
+    margin-top: 0.55rem;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .page-catalogue .catalogue-shop .offer-bg-writing img {
+    transform: none;
+    opacity: 0.45;
+    object-fit: contain;
   }
 
   .page-catalogue .catalogue-shop-cta {
-    margin: 1rem auto 0.35rem;
+    margin: 1.35rem auto 0.5rem;
     max-width: calc(100% - 1rem);
   }
 
@@ -1906,8 +1913,8 @@ body.cart-open {
     max-width: 100%;
     white-space: normal;
     text-align: center;
-    padding: 0.85rem 1.15rem;
-    font-size: 0.82rem;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.84rem;
   }
 }
 
@@ -2398,29 +2405,31 @@ body.cart-open {
   }
 
   .page-catalogue .catalogue-shop-inner {
-    padding-inline: 0.7rem;
+    padding-inline: 1rem;
   }
 
   .page-catalogue .shop-grid {
-    gap: 0.55rem;
+    width: min(100%, 300px);
+    max-width: 300px;
+    gap: 1.15rem;
   }
 
   .page-catalogue .shop-item-body h3 {
-    font-size: 0.84rem;
+    font-size: 1.15rem;
     line-height: 1.2;
   }
 
   .page-catalogue .shop-item .price {
-    font-size: 0.74rem;
+    font-size: 0.88rem;
   }
 
   .page-catalogue .shop-item-explore {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .page-catalogue .shop-item-card .btn-add-cart {
-    font-size: 0.62rem;
-    padding: 0.48rem 0.35rem;
+    font-size: 0.75rem;
+    padding: 0.65rem 0.75rem;
   }
 }
 
@@ -4661,7 +4670,20 @@ body.cart-open {
 
   .footer-bg-photo img {
     object-position: center center;
-    opacity: 0.95;
+    opacity: 0.55;
+  }
+
+  .site-footer {
+    background: #f6e4a3;
+  }
+
+  .site-footer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: rgba(250, 247, 242, 0.28);
   }
 }
 
